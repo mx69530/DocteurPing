@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10deb1
+-- version 4.1.14
 -- http://www.phpmyadmin.net
 --
--- Client: localhost
--- Généré le: Jeu 02 Octobre 2014 à 17:02
--- Version du serveur: 5.5.38-0ubuntu0.14.04.1
--- Version de PHP: 5.5.9-1ubuntu4.4
+-- Client :  127.0.0.1
+-- Généré le :  Mar 24 Février 2015 à 16:57
+-- Version du serveur :  5.6.17
+-- Version de PHP :  5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,34 +17,26 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données: `acu`
+-- Base de données :  `docteurping`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `keySympt`
+-- Structure de la table `keysympt`
 --
 
-CREATE TABLE IF NOT EXISTS `keySympt` (
+CREATE TABLE IF NOT EXISTS `keysympt` (
   `idK` int(11) NOT NULL,
   `idS` int(11) NOT NULL,
   PRIMARY KEY (`idK`,`idS`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- RELATIONS POUR LA TABLE `keySympt`:
---   `idK`
---       `keywords` -> `idK`
---   `idS`
---       `symptome` -> `idS`
+-- Contenu de la table `keysympt`
 --
 
---
--- Contenu de la table `keySympt`
---
-
-INSERT INTO `keySympt` (`idK`, `idS`) VALUES
+INSERT INTO `keysympt` (`idK`, `idS`) VALUES
 (3, 61),
 (4, 61),
 (4, 124),
@@ -1320,12 +1312,6 @@ CREATE TABLE IF NOT EXISTS `patho` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=116 ;
 
 --
--- RELATIONS POUR LA TABLE `patho`:
---   `mer`
---       `meridien` -> `code`
---
-
---
 -- Contenu de la table `patho`
 --
 
@@ -1908,10 +1894,10 @@ INSERT INTO `symptome` (`idS`, `desc`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `symptPatho`
+-- Structure de la table `symptpatho`
 --
 
-CREATE TABLE IF NOT EXISTS `symptPatho` (
+CREATE TABLE IF NOT EXISTS `symptpatho` (
   `idS` int(11) NOT NULL,
   `idP` int(11) NOT NULL,
   `aggr` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Vrai si symptôme d''aggravation',
@@ -1919,18 +1905,10 @@ CREATE TABLE IF NOT EXISTS `symptPatho` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- RELATIONS POUR LA TABLE `symptPatho`:
---   `idP`
---       `patho` -> `idP`
---   `idS`
---       `symptome` -> `idS`
+-- Contenu de la table `symptpatho`
 --
 
---
--- Contenu de la table `symptPatho`
---
-
-INSERT INTO `symptPatho` (`idS`, `idP`, `aggr`) VALUES
+INSERT INTO `symptpatho` (`idS`, `idP`, `aggr`) VALUES
 (1, 15, 0),
 (2, 16, 0),
 (3, 94, 0),
@@ -2464,6 +2442,22 @@ INSERT INTO `symptPatho` (`idS`, `idP`, `aggr`) VALUES
 (446, 114, 0),
 (447, 112, 0),
 (448, 113, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `users`
+--
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `idUser` int(11) NOT NULL AUTO_INCREMENT,
+  `prenom` varchar(50) NOT NULL,
+  `nom` varchar(50) NOT NULL,
+  `mail` varchar(50) NOT NULL,
+  `login` varchar(254) NOT NULL,
+  `mpd` varchar(255) NOT NULL,
+  PRIMARY KEY (`idUser`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

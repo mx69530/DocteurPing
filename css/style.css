@@ -1,11 +1,27 @@
+/*RESET CSS*/
+* {
+    margin: 0;
+    padding: 0;
+}
+ /*FIN RESET CSS*/
+
+
+
 body {
 
 	background-color: #E8E7E7;
-	padding-left: 3%;
-	padding-right: 3%;
  }
 
  /*FORMULAIRE*/
+ 
+#page{
+	padding-top: 2em;
+	padding-bottom: 2em;
+	
+}
+ 
+
+ 
 form {
 	 padding:1em;
 	 width:20em;
@@ -57,9 +73,7 @@ input[type=submit], input[type=reset] {
 nav {
 	position: relative;
 	width: 100%;
-	
-	  margin: 0em 6em;
-}
+	}
  
 nav ul {
   list-style: none;
@@ -118,6 +132,12 @@ header{
 	background-color: #CD0000;
 }
 
+footer{
+	position: relative;
+	background-color: #CD0000;
+		color: #FEFEFE;
+
+}
 
 
 .titre {
