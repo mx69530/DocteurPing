@@ -19,10 +19,12 @@ if (!isset($_SESSION['id']) AND !isset($_SESSION['pseudo'])){
 
 	<body>
 	<?php 
-		$current=$_GET["current"];
-		echo 'La page courante est : '.$current;
-	?>
-	<?php include('lib/view/header.php'); ?>
+		if (isset($_GET["current"])){
+			$current=$_GET["current"];
+			echo 'La page courante est : '.$current;
+		}
+	
+		include('lib/view/header.php'); ?>
  
 	<div id='page'>
 		<?php 

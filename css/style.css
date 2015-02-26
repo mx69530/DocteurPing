@@ -129,12 +129,15 @@ header{
 }
 
 footer{
-	position: relative;
+	position:absolute;
+	display:block;
+	width:100%;
 	background-color: #CD0000;
 	color: #FEFEFE;
 	text-align:right;
 	font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
-	margin-bottom:0;
+margin:auto;
+	margin-bottom:0%;
 
 }
 
