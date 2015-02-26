@@ -1,9 +1,9 @@
 <?php
-session_start();
-if (!isset($_SESSION['id']) AND !isset($_SESSION['pseudo'])){
-	$_SESSION['id']=Null;
-	$_SESSION['pseudo']=Null;
-}
+	session_start();
+	if (!isset($_SESSION['pseudo']) AND !isset($_SESSION['connect'])){
+		$_SESSION['pseudo']="";
+		$_SESSION['connect']=0;
+	}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -18,12 +18,8 @@ if (!isset($_SESSION['id']) AND !isset($_SESSION['pseudo'])){
 	</head>
 
 	<body>
-	<?php 
-		if (isset($_GET["current"])){
-			$current=$_GET["current"];
-			echo 'La page courante est : '.$current;
-		}
 	
+<<<<<<< HEAD
 		include('lib/view/header.php'); ?>
  
 	<div id='page'>
@@ -47,5 +43,15 @@ if (!isset($_SESSION['id']) AND !isset($_SESSION['pseudo'])){
 
 	 </div>
 	<?php include('lib/view/footer.php'); ?>
+=======
+	<?php 
+		include('lib/view/header.php');
+		echo "<div id='page'>" ;
+			include('lib/ctrl/controler.php');
+			$controller = new Controller;
+			$controller->currentView();
+		echo "</div>";
+		include('lib/view/footer.php'); ?>
+>>>>>>> 1f9f44c5626969e63dcd1e50c7a6c7f676a78417
 	 </body>
 </html>
