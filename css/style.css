@@ -131,7 +131,10 @@ header{
 footer{
 	position: relative;
 	background-color: #CD0000;
-		color: #FEFEFE;
+	color: #FEFEFE;
+	text-align:right;
+	font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
+	margin-bottom:0;
 
 }
 
@@ -148,6 +151,8 @@ footer{
 	margin-left:5%;
 	margin-right:5%;
 	padding: 2em;
+	text-align:justify;
+
 }
 
 
