@@ -8,12 +8,19 @@
 		<div>
 			Méridiens : 
 			<select name="meridian">
-				
+				<option>
+				<?php
+					$datas = $controller.getMeridians();
+					foreach($datas as $meridian){
+						echo "<option>".$meridian;
+					}
+				?>
 			</select>
 		</div>
 		<div>
 			Type de pathologie : 
 			<select name="pathologyType">
+				<option>
 				<option>méridien
 				<option>organe/viscère
 				<option>luo
@@ -24,6 +31,7 @@
 		<div>
 			Caractéristiques : 
 			<select name="feature">
+				<option>
 				<option>plein
 				<option>chaud
 				<option>vide
@@ -38,7 +46,6 @@
 	<ul>
 		<?php 
 		//TODO s'adresser au controlleur pour récupérer les données
-		$pathologies = getPathologies($_POST['meridian'], $_POST['pathologyType'], $_POST['feature']);
 		?>
 	</ul>
 </form>

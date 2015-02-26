@@ -43,7 +43,7 @@ if (!isset($_SESSION['id']) AND !isset($_SESSION['pseudo'])){
 		?>
 		
 		
-		
+		<?php include('lib/view/consultation.php'); ?>
 
 	 </div>
 	<?php include('lib/view/footer.php'); ?>

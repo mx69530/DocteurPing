@@ -13,9 +13,10 @@
 
 		*/
 		function findPathologyWithFilters($meridian, $pathologyType, $feature){
-			if(!is_array($meridian) || !is_array($pathologyType) || !is_array($feature)){
-				return null;
-			}
+			$meridian = "%".$meridian."%";
+			$pathologyType = "%".$pathologyType."%";
+			$feature = "%".$feature."%";
+
 			$query = "SELECT p.idP, p.mer, p.type, p.desc, s.desc FROM patho as p";
 			$query .= "INNER JOIN symptPatho as sp ON  p.idP = sp.idP";
 			$query .= "INNER JOIN symptome as s ON  sp.idS = s.idS";
