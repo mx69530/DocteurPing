@@ -45,6 +45,10 @@
 				include('lib/view/signup.php');
 			}
 			
+			if($current=='account'){
+				include('lib/view/account.php');
+			}
+			
 		}
 		
 		
@@ -70,16 +74,13 @@
 			}else{
 				echo "<br>Vous n'êtes pas connecté<br>";
 			}
+		
 		}
 		
 		public function process_logout(){
 			// Suppression des variables de session et de la session
 			$_SESSION = array();
 			session_destroy();
-
-			// Suppression des cookies de connexion automatique
-			setcookie('login', '');
-			setcookie('pass_hache', '');
 		}
 		
 		public function process_signup(){
