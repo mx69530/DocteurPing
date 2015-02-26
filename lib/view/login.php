@@ -11,5 +11,5 @@
       </fieldset>
       <input type="submit" value="Valider" />
 	</form>
-<a href="signup.php">S'inscrire</a>
+<a href="index.php?current=signup">S'inscrire</a>
 </div>

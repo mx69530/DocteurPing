@@ -15,7 +15,7 @@
 		  <a href="#">Flux RSS</a>
 		</li>
 		<li>
-		  <a href="php/process_logout.php">Deconnexion</a>
+		  <a href="index.php?current=logout">Deconnexion</a>
 		</li>
 	  </ul>
 	</nav>
