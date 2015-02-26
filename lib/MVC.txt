@@ -1,0 +1,4 @@
+Une seul page : index.php
+
+- Control fabrique la page
+- Model récupere les donnée (ex: fabrique une liste d'utilisateur) ex: patho.php

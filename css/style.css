@@ -14,11 +14,7 @@ body {
 
  /*FORMULAIRE*/
  
-#page{
-	padding-top: 2em;
-	padding-bottom: 2em;
-	
-}
+
  
 
  
@@ -145,4 +141,17 @@ footer{
 	color: #FEFEFE;
 	font-size: 4.5em;
 	margin-left: 1%;
+}
+
+#page{
+	background-color: #FFFFFF;
+	margin-left:5%;
+	margin-right:5%;
+	padding: 2em;
+}
+
+
+#loginPage{
+	margin:auto;
+	width:200px;
 }

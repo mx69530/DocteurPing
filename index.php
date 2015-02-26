@@ -1,3 +1,7 @@
+<?php
+$_SESSION['id']=Null;
+$_SESSION['pseudo']=Null;
+?>
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
@@ -24,10 +28,34 @@
 		    <li>
 		      <a href="#">Mon compte</a>
 		    </li>
+			<li>
+		      <a href="#">Flux RSS</a>
+		    </li>
+			<li>
+		      <a href="#">Deconnexion</a>
+		    </li>
 		  </ul>
 		</nav>
 	</header>
-	<div id="page">
+	<div id='page'>
+		<?php 
+		if (isset($_SESSION['id']) AND isset($_SESSION['pseudo'])AND $_SESSION['pseudo']!=NULL  AND $_SESSION['id']!=NULL)
+		{
+				echo 'Utilisateur deja connecté';
+				echo 'ID :'. $_SESSION['id'];
+				echo 'Pseudo :'.$_SESSION['pseudo'];
+	  
+		}else{
+			include('php/login.php');
+			echo 'ID :'. $_SESSION['id'];
+			echo 'Pseudo :'.$_SESSION['pseudo'];
+	  
+		}
+		?>
+		
+		
+		
+		
 		<p>Quam ob rem vita quidem talis fuit vel fortuna vel gloria, ut nihil posset accedere, moriendi autem sensum celeritas abstulit; quo de genere mortis difficile dictu est; quid homines suspicentur, videtis; hoc vere tamen licet dicere, P. Scipioni ex multis diebus, quos in vita celeberrimos laetissimosque viderit, illum diem clarissimum fuisse, cum senatu dimisso domum reductus ad vesperum est a patribus conscriptis, populo Romano, sociis et Latinis, pridie quam excessit e vita, ut ex tam alto dignitatis gradu ad superos videatur deos potius quam ad inferos pervenisse.
 		<p>Utque proeliorum periti rectores primo catervas densas opponunt et fortes, deinde leves armaturas, post iaculatores ultimasque subsidiales acies, si fors adegerit, iuvaturas, ita praepositis urbanae familiae suspensae digerentibus sollicite, quos insignes faciunt virgae dexteris aptatae velut tessera data castrensi iuxta vehiculi frontem omne textrinum incedit: huic atratum coquinae iungitur ministerium, dein totum promiscue servitium cum otiosis plebeiis de vicinitate coniunctis: postrema multitudo spadonum a senibus in pueros desinens, obluridi distortaque lineamentorum conpage deformes, ut quaqua incesserit quisquam cernens mutilorum hominum agmina detestetur memoriam Samiramidis reginae illius veteris, quae teneros mares castravit omnium prima velut vim iniectans naturae, eandemque ab instituto cursu retorquens, quae inter ipsa oriundi crepundia per primigenios seminis fontes tacita quodam modo lege vias propagandae posteritatis ostendit.
 		</p>
@@ -43,12 +71,8 @@
 		</p>
 		<p>Quam ob rem vita quidem talis fuit vel fortuna vel gloria, ut nihil posset accedere, moriendi autem sensum celeritas abstulit; quo de genere mortis difficile dictu est; quid homines suspicentur, videtis; hoc vere tamen licet dicere, P. Scipioni ex multis diebus, quos in vita celeberrimos laetissimosque viderit, illum diem clarissimum fuisse, cum senatu dimisso domum reductus ad vesperum est a patribus conscriptis, populo Romano, sociis et Latinis, pridie quam excessit e vita, ut ex tam alto dignitatis gradu ad superos videatur deos potius quam ad inferos pervenisse.
 		</p>		  
-	</div>
-	  <!--
-	  <?php
-	    include 'php/login.php';
-	  ?>
-	  -->
+
+	 </div>
 	 <footer>
 	 <br>
 	 <br>
