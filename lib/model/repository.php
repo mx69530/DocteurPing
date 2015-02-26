@@ -20,7 +20,9 @@
 			$query .= "INNER JOIN symptPatho as sp ON  p.idP = sp.idP";
 			$query .= "INNER JOIN symptome as s ON  sp.idS = s.idS";
 			$query .= "INNER JOIN meridien as m ON  m.code = p.mer";
-			$query .= "WHERE "
+			$query .= "WHERE m.name like ?";
+			$query .= "AND p.desc like ?";
+			$query .= "AND p.desc like ?";
 			$data = $bdd->executeQuery($query,array($meridian, $pathologyType, $feature));
 		}
 	}

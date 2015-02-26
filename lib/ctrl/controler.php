@@ -1,5 +1,5 @@
 <?php
-	class Controler
+	class Controller
 	{
 		private $_variable;
 
