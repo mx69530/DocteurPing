@@ -10,9 +10,9 @@
 		}
 		
 		/**
-
+			Trouve une pathologie à l'aide de filtres
 		*/
-		function findPathologyWithFilters($meridian, $pathologyType, $feature){
+		public function findPathologyWithFilters($meridian, $pathologyType, $feature){
 			$meridian = "%".$meridian."%";
 			$pathologyType = "%".$pathologyType."%";
 			$feature = "%".$feature."%";
@@ -25,6 +25,13 @@
 			$query .= "AND p.desc like ?";
 			$query .= "AND p.desc like ?";
 			$data = $bdd->executeQuery($query,array($meridian, $pathologyType, $feature));
+
+			//TODO instancier les objets
+		}
+
+		public function getMeridians(){
+
+
 		}
 	}
 ?>

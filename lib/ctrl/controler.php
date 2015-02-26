@@ -91,7 +91,10 @@
 				$pass=$_POST['pass'];
 			}
 		}		
-				
+		
+		public function getMeridiansName(){
+			return array();
+		}	
 	}
 
 ?>

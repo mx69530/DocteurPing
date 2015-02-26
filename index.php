@@ -19,31 +19,6 @@
 
 	<body>
 	
-<<<<<<< HEAD
-		include('lib/view/header.php'); ?>
- 
-	<div id='page'>
-		<?php 
-		if (isset($_SESSION['id']) AND isset($_SESSION['pseudo'])AND $_SESSION['pseudo']!=NULL  AND $_SESSION['id']!=NULL)
-		{
-				echo 'Utilisateur deja connecté';
-				echo 'ID :'. $_SESSION['id'];
-				echo 'Pseudo :'.$_SESSION['pseudo'];
-	  
-		}else{
-			include('php/login.php');
-			echo 'ID :'. $_SESSION['id'];
-			echo 'Pseudo :'.$_SESSION['pseudo'];
-	  
-		}
-		?>
-		
-		
-		<?php include('lib/view/consultation.php'); ?>
-
-	 </div>
-	<?php include('lib/view/footer.php'); ?>
-=======
 	<?php 
 		include('lib/view/header.php');
 		echo "<div id='page'>" ;
@@ -52,6 +27,5 @@
 			$controller->currentView();
 		echo "</div>";
 		include('lib/view/footer.php'); ?>
->>>>>>> 1f9f44c5626969e63dcd1e50c7a6c7f676a78417
 	 </body>
 </html>
