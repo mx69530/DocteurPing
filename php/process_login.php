@@ -13,7 +13,7 @@
 	}
 
 
-	if (($pseudo == "maxime" AND $pass== "maxime")) 
+	if (($pseudo === "maxime" AND $pass=== "maxime")) 
 	{
 	    $_SESSION['connect']=1; // Change la valeur de la variable connect. C'est elle qui nous permettra de savoir s'il y a eu identification.
 	    $_SESSION['pseudo']=$pseudo;// Permet de récupérer le login afin de personnaliser la navigation.
@@ -22,7 +22,7 @@
 	  echo 'ID :'. $_SESSION['id'];
 	  echo 'Pseudo :'.$_SESSION['pseudo'];
 	  sleep(3);
-   	 // header('Location: ../index.php');      
+	  header('Location: ../index.php');      
 
 	}else{
 		echo "LOOSER";
