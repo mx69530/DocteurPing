@@ -1,18 +1,24 @@
-<form action="" method="POST">
-	<fieldset>
-		<legend>Rechercher une pathologie</legend>
+<fieldset>
+	<legend>Rechercher une pathologie</legend>
+	<form action="index.php?current=consultation&process=search" method="POST">
+		
 		<div>
 			Mots-clefs : 
-			<input type="text" name="keywords">
+			<input type="text" name="keywords" <?php echo 'value="'.$this->getCurrentKeywords().'"'?> >
 		</div>
 		<div>
 			Méridiens : 
 			<select name="meridian">
 				<option>
 				<?php
-					$datas = $controller.getMeridians();
-					foreach($datas as $meridian){
-						echo "<option>".$meridian;
+					$selected = $this->getSelectedMeridian();
+					$datas = $this->getMeridianNames();
+					foreach($datas as $element){
+						echo "<option";
+						if($selected === $element){
+							echo " selected";
+						}
+						echo ">".$element;
 					}
 				?>
 			</select>
@@ -21,31 +27,63 @@
 			Type de pathologie : 
 			<select name="pathologyType">
 				<option>
-				<option>méridien
-				<option>organe/viscère
-				<option>luo
-				<option>merveilleux vaisseaux
-				<option>jing jin
+				<?php
+					$selected = $this->getSelectedPathologyType();
+					$datas = array('méridien', 'organe/viscère', 'luo', 'merveilleux vaisseaux', 'jing jin');
+					foreach($datas as $element){
+						echo "<option";
+						if($selected === $element){
+							echo " selected";
+						}
+						echo ">".$element;
+					}
+				?>
 			</select>
 		</div>
 		<div>
 			Caractéristiques : 
 			<select name="feature">
 				<option>
-				<option>plein
-				<option>chaud
-				<option>vide
-				<option>froid
-				<option>interne
-				<option>externe
+				
+				<?php
+					$selected = $this->getSelectedFeature();
+					$datas = array('plein', 'chaud', 'vide', 'froid', 'interne', 'externe');
+					foreach($datas as $element){
+						echo "<option";
+						if($selected === $element){
+							echo " selected";
+						}
+						echo ">".$element;
+					}
+				?>
 			</select>
 		</div>
 		<input type="submit" value="Rechercher">
-	</fieldset>
+	</form>
+	<form action="index.php?current=consultation&process=clear" method="POST">
+		<input type="submit" value="RAZ">
+	</form>
+</fieldset>
 
-	<ul>
+<fieldset>
+	<legend>Pathologies</legend>
 		<?php 
-		//TODO s'adresser au controlleur pour récupérer les données
+			$datas = $this->getSearchedPathologies();
+			foreach($datas as $element){
+				echo '<div><fieldset>'.
+						'<legend>Pathologie</legend>'.
+						'<div>Description : '.$element->getdesc().'</div>'.
+						'<fieldset>'.
+							'<legend>Méridien</legend>'.
+							'<div>Nom : '.$element->getmeridian()->getname().'</div>'.
+							'<div>Catégorie : '.$element->getmeridian()->getyin().'</div>'.
+						'</fieldset>'.
+						'<fieldset>'.
+						'<legend>Symptomes</legend>';
+				foreach($element->getsymptoms() as $element2){
+					echo '<div>'.$element2->getdesc().'</div>';
+				}
+				echo '</fieldset></div>';
+			}
 		?>
-	</ul>
-</form>
+</fieldset>

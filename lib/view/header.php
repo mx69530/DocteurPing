@@ -6,7 +6,7 @@
 		   <a href="index.php?current=patho">Patologies</a>
 		</li>
 		<li>
-		  <a href="index.php?current=search">Recherche</a>
+		  <a href="index.php?current=consultation">Recherche</a>
 		</li>
 		<li>
 		  <a href="index.php?current=account">Mon compte</a>

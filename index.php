@@ -22,13 +22,11 @@
 	<?php 
 		include('lib/view/header.php');
 		echo "<div id='page'>" ;
-			include('lib/ctrl/controler.php');
-			$controller = new Controller;
-			$controller->currentView();
 		
-			include('php/bdd.php');
-			$BDD=new BDD;
-			
+		include('lib/ctrl/controler.php');
+		$controller = new Controller;
+		$controller->currentView();
+		
 		echo "</div>";
 		include('lib/view/footer.php'); 
 		

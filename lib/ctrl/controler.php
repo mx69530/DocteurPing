@@ -1,13 +1,14 @@
 <?php
 	class Controller
 	{
-		private $_variable;
+		private $_repo;
 
 		/**
 			Contructeur
 		*/
 		public function __construct() {
-			
+			include('lib/model/repository.php');
+			$this->_repo = new Repository;
 		}
 
 		/**
@@ -49,6 +50,9 @@
 				include('lib/view/account.php');
 			}
 			
+			if($current === 'consultation'){
+				include('lib/view/consultation.php');
+			}
 		}
 		
 		
@@ -91,11 +95,53 @@
 				$pseudo=$_POST['pseudo'];
 				$pass=$_POST['pass'];
 			}
-		}		
-		
-		public function getMeridiansName(){
+		}
+
+		public function getSearchedPathologies(){
+			if(isset($_POST['meridian']) && isset($_POST['keywords']) && isset($_POST['feature']) && isset($_POST['pathologyType'])){
+				$datas = $this->_repo->findPathologyWithFilters($_POST['meridian'], $_POST['pathologyType'], $_POST['feature']);
+				$pathologies = $datas;
+				return $pathologies;
+			}
 			return array();
-		}	
+		}
+		
+		public function getMeridianNames(){
+			$meridians = $this->_repo->getMeridians();
+			$meridianNames = array();
+			foreach($meridians as $meridian){
+				array_push($meridianNames, $meridian->getName());
+			}
+			return $meridianNames;
+		}
+		
+		public function getCurrentKeywords(){
+			if(isset($_POST['keywords'])){
+				return $_POST['keywords'];
+			}
+			return '';
+		}
+		
+		public function getSelectedMeridian(){
+			if(isset($_POST['meridian'])){
+				return $_POST['meridian'];
+			}
+			return '';
+		}
+		
+		public function getSelectedPathologyType(){
+			if(isset($_POST['pathologyType'])){
+				return $_POST['pathologyType'];
+			}
+			return '';
+		}
+		
+		public function getSelectedFeature(){
+			if(isset($_POST['feature'])){
+				return $_POST['feature'];
+			}
+			return '';
+		}
 	}
 
 ?>
