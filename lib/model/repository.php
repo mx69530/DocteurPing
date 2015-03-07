@@ -22,22 +22,71 @@
 		/**
 			Trouve une pathologie à l'aide de filtres
 		*/
-		public function findPathologyWithFilters($meridian, $pathologyType, $feature){
-			$meridian = "%".$meridian."%";
-			$pathologyType = "%".$pathologyType."%";
-			$feature = "%".$feature."%";
+		public function findPathologyWithFilters($keyword, $meridians, $pathologyTypes, $features){
+			if(!is_string($keyword) || !is_array($meridians) || !is_array($pathologyTypes) || !is_array($features)){
+				return array();
+			}
+			
+			if(empty($meridians)){
+				array_push($meridians, "%");
+			}
+			if(empty($pathologyTypes)){
+				array_push($pathologyTypes, "%");
+			}
+			if(empty($features)){
+				array_push($features, "%");
+			}
+			
+			$keyword = "%".$keyword."%";
+			foreach($pathologyTypes as $key=>$pathologyType){
+				$pathologyTypes[$key] = "%".$pathologyType."%";
+			}			
+			foreach($features as $key=>$feature){
+				$features[$key] = "%".$feature."%";
+			}
 
-			$query = "SELECT p.idP, p.type, p.desc as descP, s.idS, s.desc as descS, m.code, m.nom, m.element, m.yin FROM patho as p ";
+			$parameters = array();
+			
+			//Preparation de la requête
+			$query = "SELECT DISTINCT p.idP, p.type, p.desc as descP, s.idS, s.desc as descS, m.code, m.nom, m.element, m.yin FROM patho as p ";
 			$query .= "INNER JOIN symptpatho as sp ON  p.idP = sp.idP ";
 			$query .= "INNER JOIN symptome as s ON  sp.idS = s.idS ";
 			$query .= "INNER JOIN meridien as m ON  m.code = p.mer ";
-			$query .= "WHERE m.nom like ? ";
-			$query .= "AND p.desc like ? ";
-			$query .= "AND p.desc like ? ";
-			$query .= "LIMIT 10";
-			$datas = $this->_bdd->executeQuery($query,array($meridian, $pathologyType, $feature));
+			$query .= "INNER JOIN keySympt as ks ON  ks.idS = s.idS ";
+			$query .= "INNER JOIN keywords as kw ON  kw.idK = ks.idK ";
+			
+			$query .= "WHERE (";
+			$query .= "kw.name like ? ";
+			array_push($parameters, $keyword);
+			$query .= ") AND (";
+			foreach($meridians as $key=>$meridian){
+				if($key != 0){
+					$query .= "OR ";
+				}
+				$query .= "m.nom like ? ";
+				array_push($parameters, $meridian);
+			}
+			$query .= ") AND (";
+			foreach($pathologyTypes as $key=>$pathologyType){
+				if($key != 0){
+					$query .= "OR ";
+				}
+				$query .= "p.desc like ? ";
+				array_push($parameters, $pathologyType);
+			}
+			$query .= ") AND (";
+			foreach($features as $key=>$feature){
+				if($key != 0){
+					$query .= "OR ";
+				}
+				$query .= "p.desc like ? ";
+				array_push($parameters, $feature);
+			}
+			$query .= ") LIMIT 10";
+			
+			$datas = $this->_bdd->executeQuery($query, $parameters);
 
-			//TODO instancier les objets
+			//Instancie les objets
 			foreach($datas as $row){
 				if($row['yin'] === '0'){
 					$row['yin'] = 'yang';

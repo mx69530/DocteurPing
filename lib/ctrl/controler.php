@@ -98,12 +98,28 @@
 		}
 
 		public function getSearchedPathologies(){
-			if(isset($_POST['meridian']) && isset($_POST['keywords']) && isset($_POST['feature']) && isset($_POST['pathologyType'])){
-				$datas = $this->_repo->findPathologyWithFilters($_POST['meridian'], $_POST['pathologyType'], $_POST['feature']);
-				$pathologies = $datas;
-				return $pathologies;
+			$meridians = array();
+			$pathologyTypes = array();
+			$features = array();
+			
+			if(!isset($_POST['keyword'])){
+				$keyword = '';
+			}else{
+				$keyword = $_POST['keyword'];
 			}
-			return array();
+						
+			foreach($_POST as $key=>$value){
+				if(substr($key, 0, 8) === 'meridian'){
+					array_push($meridians, $value);
+				}else if(substr($key, 0, 13) === 'pathologyType'){
+					array_push($pathologyTypes, $value);
+				}else if(substr($key, 0, 7) === 'feature'){
+					array_push($features, $value);
+				}
+			}
+			$datas = $this->_repo->findPathologyWithFilters($keyword, $meridians, $pathologyTypes, $features);
+			$pathologies = $datas;
+			return $pathologies;
 		}
 		
 		public function getMeridianNames(){
@@ -116,31 +132,42 @@
 		}
 		
 		public function getCurrentKeywords(){
-			if(isset($_POST['keywords'])){
-				return $_POST['keywords'];
+			if(!isset($_POST['keyword'])){
+				return '';
+			}else{
+				return $_POST['keyword'];
 			}
-			return '';
 		}
 		
-		public function getSelectedMeridian(){
-			if(isset($_POST['meridian'])){
-				return $_POST['meridian'];
+		public function getSelectedMeridians(){
+			$result = array();
+			foreach($_POST as $key=>$value){
+				if(substr($key, 0, 8) === 'meridian'){
+					array_push($result, $value);
+				}
 			}
-			return '';
+			
+			return $result;
 		}
 		
-		public function getSelectedPathologyType(){
-			if(isset($_POST['pathologyType'])){
-				return $_POST['pathologyType'];
+		public function getSelectedPathologyTypes(){
+			$result = array();
+			foreach($_POST as $key=>$value){
+				if(substr($key, 0, 13) === 'pathologyType'){
+					array_push($result, $value);
+				}
 			}
-			return '';
+			return $result;
 		}
 		
-		public function getSelectedFeature(){
-			if(isset($_POST['feature'])){
-				return $_POST['feature'];
+		public function getSelectedFeatures(){
+			$result = array();
+			foreach($_POST as $key=>$value){
+				if(substr($key, 0, 7) === 'feature'){
+					array_push($result, $value);
+				}
 			}
-			return '';
+			return $result;
 		}
 	}
 

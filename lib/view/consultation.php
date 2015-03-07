@@ -3,60 +3,56 @@
 	<form action="index.php?current=consultation&process=search" method="POST">
 		
 		<div>
-			Mots-clefs : 
-			<input type="text" name="keywords" <?php echo 'value="'.$this->getCurrentKeywords().'"'?> >
+			Mots-clef : 
+			<input type="text" name="keyword" <?php echo 'value="'.$this->getCurrentKeywords().'"'?> >
 		</div>
 		<div>
-			Méridiens : 
-			<select name="meridian">
-				<option>
-				<?php
-					$selected = $this->getSelectedMeridian();
-					$datas = $this->getMeridianNames();
-					foreach($datas as $element){
-						echo "<option";
-						if($selected === $element){
-							echo " selected";
+			<div class="consultation title">Méridiens :</div> 
+			<?php
+				$checkeds = $this->getSelectedMeridians();
+				$datas = $this->getMeridianNames();
+				foreach($datas as $key=>$element){
+					echo '<input class="consultation" type="checkbox" name="meridian'.$key.'" ';
+					foreach($checkeds as $checked){
+						if($checked === $element){
+							echo "checked ";
 						}
-						echo ">".$element;
 					}
-				?>
-			</select>
+					echo 'value="'.$element.'">'.$element.'<br>';
+				}
+			?>
 		</div>
 		<div>
-			Type de pathologie : 
-			<select name="pathologyType">
-				<option>
-				<?php
-					$selected = $this->getSelectedPathologyType();
-					$datas = array('méridien', 'organe/viscère', 'luo', 'merveilleux vaisseaux', 'jing jin');
-					foreach($datas as $element){
-						echo "<option";
-						if($selected === $element){
-							echo " selected";
+			<div class="consultation title">Type de pathologie :</div>
+			<?php
+				$checkeds = $this->getSelectedPathologyTypes();
+				$datas = array('méridien', 'organe/viscère', 'luo', 'merveilleux vaisseaux', 'jing jin');
+				foreach($datas as $key=>$element){
+					echo '<input class="consultation" type="checkbox" name="pathologyType'.$key.'" ';
+					foreach($checkeds as $checked){
+						if($checked === $element){
+							echo "checked ";
 						}
-						echo ">".$element;
 					}
-				?>
-			</select>
+					echo 'value="'.$element.'">'.$element.'<br>';
+				}
+			?>
 		</div>
 		<div>
-			Caractéristiques : 
-			<select name="feature">
-				<option>
-				
-				<?php
-					$selected = $this->getSelectedFeature();
-					$datas = array('plein', 'chaud', 'vide', 'froid', 'interne', 'externe');
-					foreach($datas as $element){
-						echo "<option";
-						if($selected === $element){
-							echo " selected";
+			<div class="consultation title">Caractéristiques :</div>
+			<?php
+				$checkeds = $this->getSelectedFeatures();
+				$datas = array('plein', 'chaud', 'vide', 'froid', 'interne', 'externe');
+				foreach($datas as $key=>$element){
+					echo '<input class="consultation" type="checkbox" name="feature'.$key.'" ';
+					foreach($checkeds as $checked){
+						if($checked === $element){
+							echo "checked ";
 						}
-						echo ">".$element;
 					}
-				?>
-			</select>
+					echo 'value="'.$element.'">'.$element.'<br>';
+				}
+			?>
 		</div>
 		<input type="submit" value="Rechercher">
 	</form>

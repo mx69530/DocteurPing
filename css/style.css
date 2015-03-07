@@ -163,3 +163,12 @@ margin:auto;
 	margin:auto;
 	width:200px;
 }
+
+input.consultation{
+	width: auto;
+	box-shadow: none;
+}
+
+.consultation , .title{
+	font-size: 2em;
+}
