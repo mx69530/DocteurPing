@@ -24,17 +24,6 @@
 		include('lib/ctrl/controler.php');
 			$controller = new Controller;
 			$controller->currentView();		
-		/*include('lib/view/header.php');
-		echo "<div id='page'>" ;
-		
-		include('lib/ctrl/controler.php');
-		$controller = new Controller;
-		$controller->currentView();
-		
-		echo "</div>";
-		include('lib/view/footer.php'); 
-		*/
-
 	?>
 		
 	 </body>

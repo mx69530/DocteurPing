@@ -17,9 +17,7 @@
 		public function currentView(){
 			include('lib/view/header.php');
 
-//			if ($_SESSION['connect']){
-				include('lib/view/nav.php');	
-//			}
+
 			
 			echo "<div id='page'>" ;
 
