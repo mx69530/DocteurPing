@@ -77,7 +77,7 @@
 						'<fieldset>'.
 						'<legend>Symptomes</legend>';
 				foreach($element->getsymptoms() as $element2){
-					echo '<div>'.$element2->getdesc().'</div>';
+					echo '<div>Symptome : '.$element2->getdesc().'</div>';
 				}
 				echo '</fieldset></div>';
 			}

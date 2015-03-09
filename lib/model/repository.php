@@ -52,7 +52,7 @@
 			$query .= "INNER JOIN symptpatho as sp ON  p.idP = sp.idP ";
 			$query .= "INNER JOIN symptome as s ON  sp.idS = s.idS ";
 			$query .= "INNER JOIN meridien as m ON  m.code = p.mer ";
-			$query .= "INNER JOIN keySympt as ks ON  ks.idS = s.idS ";
+			$query .= "INNER JOIN keysympt as ks ON  ks.idS = s.idS ";
 			$query .= "INNER JOIN keywords as kw ON  kw.idK = ks.idK ";
 			
 			$query .= "WHERE (";
@@ -82,10 +82,9 @@
 				$query .= "p.desc like ? ";
 				array_push($parameters, $feature);
 			}
-			$query .= ") LIMIT 10";
+			$query .= ")";
 			
 			$datas = $this->_bdd->executeQuery($query, $parameters);
-
 			//Instancie les objets
 			foreach($datas as $row){
 				if($row['yin'] === '0'){
@@ -147,5 +146,7 @@
 			}
 			return false;
 		}
+
+		
 	}
 ?>
