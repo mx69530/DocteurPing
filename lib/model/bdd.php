@@ -32,16 +32,15 @@
 			$result = array();
 			
 			$query = $this->_bdd->prepare($preparedQuery);
-			foreach($query->execute($args) as $row){
-				var_dump($row);
-			}
 
-			/*while ($data = $answer->fetch())
+			$query->execute($args);
+
+			while ($data = $query->fetch())
 			{
 				array_push($result, $data);
 			}
-			$answer->closeCursor();
-			return $data;*/
+			$query->closeCursor();
+			return $result;
 		}
 	}
 ?>

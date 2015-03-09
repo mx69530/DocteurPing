@@ -1,41 +1,50 @@
 <?php
 	class Pathology
 	{
-		private $id;
-		private $mer;
-		private $type;
-		private $desc;
+		private $_id;
+		private $_meridian;
+		private $_desc;
+		private $_symptoms;
 
-		function __construct() {
-			
+		function __construct($id, $desc, $meridian = null, $symptoms = array()) {
+			$this->_id = $id;
+			$this->_meridian = $meridian;
+			$this->_desc = $desc;
+			$this->_symptoms = $symptoms;
 		}
 
 
-		public getmeridian(){
-			return $this->meridian;
+		public function getmeridian(){
+			return $this->_meridian;
 		}
 
-		public setmeridian($meridian){
-			$this->meridian = $meridian;
+		public function setmeridian($meridian){
+			$this->_meridian = $meridian;
+		}
+		
+		public function getid(){
+			return $this->_id;
 		}
 
-		public getpathologyType(){
-			return $this->pathologyType;
+		public function setid($id){
+			$this->_id = $id;
+		}
+		
+		public function getdesc(){
+			return $this->_desc;
 		}
 
-		public setpathologyType($pathologyType){
-			$this->pathologyType = $pathologyType;
+		public function setdesc($desc){
+			$this->_desc = $desc;
+		}
+		
+		public function getsymptoms(){
+			return $this->_symptoms;
 		}
 
-		public getfeature(){
-			return $this->feature;
+		public function addsymptom($symptom){
+			array_push($this->_symptoms,$symptom);
 		}
-
-		public setfeature($feature){
-			$this->feature = $feature;
-		}
-
-
 	}
 
 

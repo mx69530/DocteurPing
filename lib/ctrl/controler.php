@@ -1,13 +1,14 @@
 <?php
 	class Controller
 	{
-		private $_variable;
+		private $_repo;
 
 		/**
 			Contructeur
 		*/
 		public function __construct() {
-			
+			include('lib/model/repository.php');
+			$this->_repo = new Repository;
 		}
 
 		/**
@@ -60,8 +61,13 @@
 			}
 			
 			
-		echo "</div>";
-		include('lib/view/footer.php'); 
+			if($current === 'consultation'){
+				include('lib/view/consultation.php');
+			}
+			echo "</div>";
+			include('lib/view/footer.php'); 
+		
+		
 		}
 		
 		
@@ -104,11 +110,80 @@
 				$pseudo=$_POST['pseudo'];
 				$pass=$_POST['pass'];
 			}
-		}		
+		}
+
+		public function getSearchedPathologies(){
+			$meridians = array();
+			$pathologyTypes = array();
+			$features = array();
+			
+			if(!isset($_POST['keyword'])){
+				$keyword = '';
+			}else{
+				$keyword = $_POST['keyword'];
+			}
+						
+			foreach($_POST as $key=>$value){
+				if(substr($key, 0, 8) === 'meridian'){
+					array_push($meridians, $value);
+				}else if(substr($key, 0, 13) === 'pathologyType'){
+					array_push($pathologyTypes, $value);
+				}else if(substr($key, 0, 7) === 'feature'){
+					array_push($features, $value);
+				}
+			}
+			$datas = $this->_repo->findPathologyWithFilters($keyword, $meridians, $pathologyTypes, $features);
+			$pathologies = $datas;
+			return $pathologies;
+		}
 		
-		public function getMeridiansName(){
-			return array();
-		}	
+		public function getMeridianNames(){
+			$meridians = $this->_repo->getMeridians();
+			$meridianNames = array();
+			foreach($meridians as $meridian){
+				array_push($meridianNames, $meridian->getName());
+			}
+			return $meridianNames;
+		}
+		
+		public function getCurrentKeywords(){
+			if(!isset($_POST['keyword'])){
+				return '';
+			}else{
+				return $_POST['keyword'];
+			}
+		}
+		
+		public function getSelectedMeridians(){
+			$result = array();
+			foreach($_POST as $key=>$value){
+				if(substr($key, 0, 8) === 'meridian'){
+					array_push($result, $value);
+				}
+			}
+			
+			return $result;
+		}
+		
+		public function getSelectedPathologyTypes(){
+			$result = array();
+			foreach($_POST as $key=>$value){
+				if(substr($key, 0, 13) === 'pathologyType'){
+					array_push($result, $value);
+				}
+			}
+			return $result;
+		}
+		
+		public function getSelectedFeatures(){
+			$result = array();
+			foreach($_POST as $key=>$value){
+				if(substr($key, 0, 7) === 'feature'){
+					array_push($result, $value);
+				}
+			}
+			return $result;
+		}
 	}
 
 ?>
