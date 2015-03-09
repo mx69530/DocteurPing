@@ -110,6 +110,7 @@
 			}
 		}
 
+		
 		public function getSearchedPathologies(){
 			if (!isset($_GET["process"]) || $_GET["process"] != "search"){
 				return array();
