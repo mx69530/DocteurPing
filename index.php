@@ -20,18 +20,9 @@
 	<body>
 	
 	<?php 
-		include('lib/view/header.php');
-		echo "<div id='page'>" ;
 			include('lib/ctrl/controler.php');
 			$controller = new Controller;
-			$controller->currentView();
-		
-			include('php/bdd.php');
-			$BDD=new BDD;
-			
-		echo "</div>";
-		include('lib/view/footer.php'); 
-		
+			$controller->currentView();		
 	?>
 		
 	 </body>

@@ -14,6 +14,14 @@
 			Affichage de la vue dans index.php
 		*/
 		public function currentView(){
+			include('lib/view/header.php');
+
+//			if ($_SESSION['connect']){
+				include('lib/view/nav.php');	
+//			}
+			
+			echo "<div id='page'>" ;
+
 
 			if (isset($_GET["current"])){
 				$current=$_GET["current"];
@@ -21,6 +29,7 @@
 			}else{
 				$current='';
 			}
+			
 			
 			if($current=='connexion' OR $current=='' OR $current=='logout'){
 				if($current=='connexion'){
@@ -35,6 +44,7 @@
 					echo 'Utilisateur deja connecté';
 					echo 'Connect :'. $_SESSION['connect'];
 					echo 'Pseudo :'.$_SESSION['pseudo'];
+					
 				}else{
 				
 					include('lib/view/login.php');			  
@@ -49,6 +59,9 @@
 				include('lib/view/account.php');
 			}
 			
+			
+		echo "</div>";
+		include('lib/view/footer.php'); 
 		}
 		
 		
@@ -74,7 +87,7 @@
 			}else{
 				echo "<br>Vous n'êtes pas connecté<br>";
 			}
-		
+	
 		}
 		
 		public function process_logout(){

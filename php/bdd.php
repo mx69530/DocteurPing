@@ -4,7 +4,7 @@
 		private $_bdd;
 
 		function __construct() {
-			connect();
+			$this->connect();
 		}
 
 		/**
@@ -13,7 +13,7 @@
 		private function connect(){
 			try
 			{
-				$_bdd = new PDO('mysql:host=localhost;dbname=docteurping;charset=utf8', 'root', 'root');
+				$this->_bdd = new PDO('mysql:host=localhost;dbname=docteurping;charset=utf8', 'root', '');
 			}
 			catch(Exception $e)
 			{
@@ -31,15 +31,17 @@
 			}
 			$result = array();
 			
-			$query = $bdd->prepare($preparedQuery);
-			$answer = $query->execute($arg);
+			$query = $this->_bdd->prepare($preparedQuery);
+			foreach($query->execute($args) as $row){
+				var_dump($row);
+			}
 
-			while ($data = $answer->fetch())
+			/*while ($data = $answer->fetch())
 			{
 				array_push($result, $data);
 			}
 			$answer->closeCursor();
-			return $data;
+			return $data;*/
 		}
 	}
 ?>
