@@ -42,5 +42,22 @@
 			$query->closeCursor();
 			return $result;
 		}
+		
+		public function updateBDD($sql, $args){
+			if(!is_array($args)){
+				return null;
+			}
+			//$sql de la forme : $sql = "UPDATE books SET title=?, author=? WHERE id=?";
+			$query = $this->_bdd->prepare($sql);
+			$query->execute($args);
+			$query->closeCursor();
+			return 1;
+		}
+		
+		
+		public function addRow($sql, $args){
+// FONCTION A FAIRE 
+		}
+		
 	}
 ?>

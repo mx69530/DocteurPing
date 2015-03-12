@@ -12,29 +12,31 @@
 				$checkeds = $this->getSelectedMeridians();
 				$datas = $this->getMeridianNames();
 				foreach($datas as $key=>$element){
-					echo '<input class="consultation" type="checkbox" name="meridian'.$key.'" ';
+					echo '<span class="consult"><label><input class="consultation" type="checkbox" name="meridian'.$key.'" ';
 					foreach($checkeds as $checked){
 						if($checked === $element){
 							echo "checked ";
 						}
 					}
-					echo 'value="'.$element.'">'.$element.'<br>';
+					echo 'value="'.$element.'"/>'.$element.'</label></span>';
 				}
 			?>
 		</div>
 		<div>
-			<div class="consultation title">Type de pathologie :</div>
+		<br>
+		<br><br><br>
+			<div class="consultation title"><br><br><br><br><br>Type de pathologie :</div>
 			<?php
 				$checkeds = $this->getSelectedPathologyTypes();
 				$datas = array('méridien', 'organe/viscère', 'luo', 'merveilleux vaisseaux', 'jing jin');
 				foreach($datas as $key=>$element){
-					echo '<input class="consultation" type="checkbox" name="pathologyType'.$key.'" ';
+					echo '<span class="consult"><label><input class="consultation" type="checkbox" name="pathologyType'.$key.'" ';
 					foreach($checkeds as $checked){
 						if($checked === $element){
 							echo "checked ";
 						}
 					}
-					echo 'value="'.$element.'">'.$element.'<br>';
+					echo 'value="'.$element.'">'.$element.'</label></span>';
 				}
 			?>
 		</div>
@@ -44,13 +46,13 @@
 				$checkeds = $this->getSelectedFeatures();
 				$datas = array('plein', 'chaud', 'vide', 'froid', 'interne', 'externe');
 				foreach($datas as $key=>$element){
-					echo '<input class="consultation" type="checkbox" name="feature'.$key.'" ';
+					echo '<span class="consult"><input class="consultation" type="checkbox" name="feature'.$key.'" ';
 					foreach($checkeds as $checked){
 						if($checked === $element){
 							echo "checked ";
 						}
 					}
-					echo 'value="'.$element.'">'.$element.'<br>';
+					echo 'value="'.$element.'">'.$element.'</label></span>';
 				}
 			?>
 		</div>
@@ -61,25 +63,30 @@
 	</form>
 </fieldset>
 
-<fieldset>
-	<legend>Pathologies</legend>
 		<?php 
+
+			echo'<table class="resultPatho">';
+			echo'<tr>';
+			echo'<td>Description</td>';
+			echo'<td>Meridien</td>';
+			echo'<td>Symptomes</td>';
+			echo'</tr>';
+			
+
 			$datas = $this->getSearchedPathologies();
 			foreach($datas as $element){
-				echo '<div><fieldset>'.
-						'<legend>Pathologie</legend>'.
-						'<div>Description : '.$element->getdesc().'</div>'.
-						'<fieldset>'.
-							'<legend>Méridien</legend>'.
-							'<div>Nom : '.$element->getmeridian()->getname().'</div>'.
-							'<div>Catégorie : '.$element->getmeridian()->getyin().'</div>'.
-						'</fieldset>'.
-						'<fieldset>'.
-						'<legend>Symptomes</legend>';
+				echo '<tr>'.
+						'<td>'.$element->getdesc().'</td>'.
+							'<td>'.
+							'<br>Nom : '.$element->getmeridian()->getname().
+							'<br>Catégorie : '.$element->getmeridian()->getyin().
+							'</td>'.
+						'<td>';
 				foreach($element->getsymptoms() as $element2){
-					echo '<div>'.$element2->getdesc().'</div>';
+					echo '<br>'.$element2->getdesc();
 				}
-				echo '</fieldset></div>';
+				echo '</td>';
+				echo '</tr>';
 			}
+			echo'</table>';
 		?>
-</fieldset>

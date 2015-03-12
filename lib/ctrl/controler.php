@@ -29,33 +29,53 @@
 				$current='';
 			}
 			
-			
-			if($current=='connexion' OR $current=='' OR $current=='logout'){
-				if($current=='connexion'){
-					$this->process_login();
-				}
-				if($current=='logout'){
-					$this->process_logout();
-				}
-				
+			if($current==''){				
 				if (isset($_SESSION['pseudo']) AND $_SESSION['pseudo']!=NULL)
 				{
 					echo 'Utilisateur deja connecté';
 					echo 'Connect :'. $_SESSION['connect'];
 					echo 'Pseudo :'.$_SESSION['pseudo'];
 					
-				}else{
-				
-					include('lib/view/login.php');			  
-				}
+				}	
 			}
+			
+			if($current=='logout'){
+				$this->process_logout();
+				header("Location:index.php?current=patho"); // Header nécessaire pour affichage du menu utilisateur deconecté
+			}
+			
+			if($current=='connexion'){
+					$this->process_login();
+			}
+				
+			if($current=='login'){
+					include('lib/view/login.php');
+			}
+			
 			
 			if($current=='signup'){
 				include('lib/view/signup.php');
 			}
 			
+			
 			if($current=='account'){
-				include('lib/view/account.php');
+			
+				if (isset($_GET["action"])){
+					$action=$_GET["action"];
+				}else{
+					$action=null;
+				}
+
+				if($action=="upDate"){
+					$this->process_accountUpdate();
+				}
+				
+				if (($userAccount=$this->_repo->getAccount())!=null) {
+					include('lib/view/account.php');
+				}else{
+					echo'ERREUR : Impossible de récuperer les information du compte';
+				}
+				
 			}
 			
 			
@@ -64,10 +84,21 @@
 			}
 			echo "</div>";
 			include('lib/view/footer.php'); 
-		
-		
+			
 		}
 		
+		
+		public function process_accountUpdate(){
+			//Nouvelles Valeurs
+			if (isset($_POST['pseudo'])) {$pseudo=$_POST['pseudo'];}else{$pseudo="";}
+			if (isset($_POST['pass'])) {$pass=$_POST['pass'];}else{$pass="";}
+			if (isset($_POST['nom'])) {$nom=$_POST['nom'];}else{$nom="";}
+			if (isset($_POST['prenom'])) {$prenom=$_POST['prenom'];}else{$prenom="";}
+			if (isset($_POST['mail'])) {$mail=$_POST['mail'];}else{$mail="";}
+			
+			$this->_repo->updateUser($pseudo,$pass,$nom,$prenom,$mail);
+							
+		}
 		
 		public function process_login(){
 			$_SESSION['connect']=0; //Initialise la variable 'connect'.
@@ -82,16 +113,23 @@
 				$pass="";
 			}
 
-			if (($pseudo === "maxime" AND $pass=== "maxime")) 
+			if (($user=$this->_repo->checkUser($pseudo,$pass))!=null) 
 			{
 				$_SESSION['connect']=1; // Change la valeur de la variable connect. C'est elle qui nous permettra de savoir s'il y a eu identification.
 				$_SESSION['pseudo']=$pseudo;// Permet de récupérer le login afin de personnaliser la navigation.
-				echo 'Pseudo :'.$_SESSION['pseudo'];
+				$_SESSION['nom']=$user->getNom();
+				$_SESSION['prenom']=$user->getPrenom();
+				$_SESSION['idUser']=$user->getId();
+				echo '<br>Pseudo :'.$_SESSION['pseudo'];
+				echo '<br>Nom :'.$_SESSION['nom'];
+				echo '<br>Prenom :'.$_SESSION['prenom'];
+				echo '<br>ID User:'.$_SESSION['idUser'];
 				echo '<br>PAGE A AFFICHER CAR CONNECTE<br>';
 			}else{
 				echo "<br>Vous n'êtes pas connecté<br>";
 			}
 	
+			header("Location:index.php?current=patho"); // Header nécessaire pour affichage du menu utilisateur connecté
 		}
 		
 		public function process_logout(){
