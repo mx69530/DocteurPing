@@ -13,7 +13,7 @@
 		private function connect(){
 			try
 			{
-				$this->_bdd = new PDO('mysql:host=localhost;dbname=docteurping;charset=utf8', 'root', 'root');
+				$this->_bdd = new PDO('mysql:host=localhost;dbname=docteurping;charset=utf8', 'root', '');
 			}
 			catch(Exception $e)
 			{

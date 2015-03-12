@@ -7,7 +7,7 @@
   <link href="../css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <form method="post" action="process_signup.php">
+    <form class="formBDD" method="post" action="process_signup.php">
       <fieldset>
         <legend>Informations personnels</legend>
            <label for="nom">Nom :</label>

@@ -8,61 +8,80 @@
 
 
 body {
-
+	font-family:Arial;
+	font-weight:normal;
 	background-color: #E8E7E7;
  }
 
  /*FORMULAIRE*/
- 
+
+h2{
+margin-top:0.5em;
+margin-bottom:0.7em;
+width:100%;
+background-color:red;
+text-align:center;
+color: white;
+
+}
+
+h3{
+margin-top:0.5em;
+margin-bottom:0.5em;
+} 
 
  
 
  
-form {
+.formBDD form {
 	 padding:1em;
 	 width:20em;
  }
-fieldset {
+.formBDD fieldset {
 	 padding:0 1.5em 1.5em 1.5em;
 	 margin-bottom:1em;
 	 border:3px solid #BDBDBD;
 	 border-radius: 10px;
  }
-legend {
+.formBDD legend {
 	 color:#000000;
 	 font-weight:bold
  }
-label {
+.formBDD label {
 	 margin-top:1em;
 	 display:block;
  }
-label.inline {
+.formBDD label.inline {
 	 display:inline;
 	 margin-right:50px;
  }
-input, textarea, select, option {
+.formBDD  input, textarea, select, option {
  	background-color:#FFFFFF;
  }
-input, textarea, select {
+.formBDD input, textarea, select {
 	 padding:3px;
 	 border:1px solid #BDBDBD;
 	 border-radius:5px;
 	 width:200px;
 	 box-shadow:1px 1px 2px #C0C0C0 inset;
  }
-select {
+.formBDD  select {
  	margin-top:10px;
  }
-input[type=radio] {
+.formBDD  input[type=radio] {
 	 background-color:transparent;
 	 border:none;
 	 width:10px;
  }
-input[type=submit], input[type=reset] {
+.formBDD input[type=submit], input[type=reset] {
 	 width:100px;
 	 margin-left:5px;
 	 box-shadow:1px 1px 1px #BDBDBD;
 	 cursor:pointer;
+ }
+
+ .formBDD fieldset{
+	width : 200px;
  }
 
 /*MENU */
@@ -167,22 +186,9 @@ margin:auto;
 
 input.consultation{
 	width: 13px;
-	/*height: 13px;
-	padding: 0;
-	margin:0;
-	vertical-align: bottom;
-	position: relative;
-	top: -1px;
-	*overflow: hidden;*/
 }
 
-.consultation label {
-	/*display: block;
-	padding-left: 15px;
-	text-indent: -15px;
-	*/
-}
-
+/*
 .consult{
 display: block;float:left
 }
@@ -191,9 +197,22 @@ display: block;float:left
 	font-size: 2em;
 	
 }
+*/
 
+.ckBox{
+	display: inline;
+	margin-right:2em;
+}
 
+.groupBox{
+	margin-left:1.5em;
+}
 
+.groupbox input{
+	margin-right:2em;
+	margin-left:2em;
+
+}
 
 
 .resultPatho {
@@ -252,9 +271,6 @@ display: block;float:left
 	border-width:0px 1px 1px 0px;
 	text-align:left;
 	padding:7px;
-	font-size:10px;
-	font-family:Arial;
-	font-weight:normal;
 	color:#000000;
 }.resultPatho tr:last-child td{
 	border-width:0px 1px 0px 0px;

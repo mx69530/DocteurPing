@@ -1,5 +1,5 @@
 
-<form method="post" action="index.php?current=account&action=upDate">
+<form class="formBDD" method="post" action="index.php?current=account&action=upDate">
   <fieldset>
 	<legend>Informations personnels</legend>
 	   <label for="nom">Nom :</label>
