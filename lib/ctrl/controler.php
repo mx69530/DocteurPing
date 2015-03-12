@@ -145,6 +145,8 @@
 				$mail=$_POST['mail'];
 				$pseudo=$_POST['pseudo'];
 				$pass=$_POST['pass'];
+				
+				//$this->_repo->insertUser($pseudo,$pass,$nom,$prenom,$mail);
 			}
 		}
 

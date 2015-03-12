@@ -7,7 +7,7 @@
   <link href="../css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <form method="post" action="process_signup.php">
+    <form method="post" action="index.php?current=signup">
       <fieldset>
         <legend>Informations personnels</legend>
            <label for="nom">Nom :</label>

@@ -202,10 +202,26 @@
 				$sql = "UPDATE users SET prenom=?, nom=?, mail=? WHERE idUser=?";
 			}
 			
-			if($this->_bdd->updateBDD($sql,$newParameters)){
-					echo"<div class=\"popup\">MAJ effectuée</div>";
-			}
+			$this->_bdd->executeQuery($sql,$newParameters);
 			
+		}
+
+		public function insertUser($pseudo,$pass,$nom,$prenom,$mail){
+			if(!is_string($pseudo) || !is_string($pass) || !is_string($nom) || !is_string($prenom) || !is_string($mail)){
+				return;
+			}
+			$parameters=array();
+			array_push($parameters, $prenom);
+			array_push($parameters, $nom);
+			array_push($parameters, $mail);
+			array_push($parameters, $pseudo);
+			array_push($parameters, $pass);
+
+			$sql = 'INSERT INTO docteurping.users (prenom, nom, mail, login, mdp)';
+			$sql .= 'VALUES (?, ?, ?, ?, ?);';
+			
+			$this->_bdd->executeQuery($sql,$parameters);
+
 		}
 
 	}
