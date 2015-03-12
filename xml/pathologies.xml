@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pathologies xmlns="schema.xml">
+	<pathologie>
+		<description>jing jin de l'estomac</description>
+		<meridien>
+			<nom>Estomac</nom>
+			<categorie>yang</categorie>e
+		</meridien>
+		<symptomes>
+			<symptome>Crampe aux 2ème, 3ème et 4ème orteils</symptome>
+			<symptome>Douleur constrictive de la région génitale et de l'abdomen</symptome>
+			<symptome>Œdème au pubis et à l'aine</symptome>
+			<symptome>Déviation de la bouche et des yeux</symptome>
+			<symptome>Impossibilité de fermer les paupières par contracture</symptome>
+			<symptome>Crampe à la face antérieure de la jambe dans la région du xxxiiE</symptome>
+			<symptome>Impossibilité d'ouvrir les yeux par hypotonie musculaire</symptome>
+			<symptome>Peï du 3ème mois de printemps</symptome>
+		</symptomes>
+	</pathologie>
+	<pathologie>
+		<description>méridien de l'estomac interne</description>
+		<meridien>
+			<nom>Estomac</nom>
+			<categorie>yang</categorie>
+		</meridien>
+		<symptomes>
+			<symptome>Douleur le long du trajet du méridien avec paralysie du 3ème orteil</symptome>
+			<symptome>Gonflement abdominal</symptome>
+			<symptome>Ballonnements, frissons et sensation de froid à la partie antérieure du corps</symptome>
+			<symptome>Plaies saignantes des lèvres ou de la bouche</symptome>
+			<symptome>Coryza clair</symptome>
+			<symptome>Paralysie faciale</symptome>
+			<symptome>Fièvre et frilosité</symptome>
+			<symptome>Folie</symptome>
+			<symptome>Pharyngite</symptome>
+			<symptome>Transpiration</symptome>
+		</symptomes>
+	</pathologie>
+	<pathologie>
+		<description>jing jin de la vésicule biliaire</description>
+		<meridien>
+			<nom>Vésicule Biliaire</nom>
+			<categorie>yang</categorie>
+		</meridien>
+		<symptomes>
+			<symptome>Crampes du 4ème orteil et du mollet</symptome>
+			<symptome>Si il y a blessure de la bosse frontale, le pied opposé ne peu plus remuer</symptome>
+			<symptome>Quand le côté gauche réagit, l'œil droit ne peut plus s'ouvrir</symptome>
+			<symptome>Irradiation de la douleur du pubis au sacrum ainsi qu'aux reins, aux côtes flottantes et au xiiE</symptome>
+			<symptome>L'articulation du genou ne peut fléchir ni s'étendre</symptome>
+			<symptome>Peï du 1er mois de printemps</symptome>
+		</symptomes>
+	</pathologie>
+	<pathologie>
+		<description>méridien de la vessie interne</description>
+		<meridien>
+			<nom>Vessie</nom>
+			<categorie>yang</categorie>
+		</meridien>
+		<symptomes>
+			<symptome>Paralysie du 5ème orteil</symptome>
+			<symptome>Douleurs du bras</symptome>
+			<symptome>Céphalées frontales et au sommet de la tête</symptome>
+			<symptome>Torticolis</symptome>
+			<symptome>Rhinorrhée de liquide clair</symptome>
+			<symptome>Coxalgie</symptome>
+			<symptome>Douleur du mollet et de la face postéro-externe de la jambe avec sensation de déchirure</symptome>
+			<symptome>Enflure de la joue</symptome>
+			<symptome>Épilepsie</symptome>
+			<symptome>Épistaxis</symptome>
+			<symptome>Fièvre et frilosité</symptome>
+			<symptome>Ictère</symptome>
+			<symptome>Folie</symptome>
+			<symptome>Hémorroïdes</symptome>
+			<symptome>Larmoiements</symptome>
+			<symptome>Yeux proéminents</symptome>
+		</symptomes>
+	</pathologie>
+	<pathologie>
+		<description>jing jin de la vessie</description>
+		<meridien>
+			<nom>Vessie</nom>
+			<categorie>:yang</categorie>
+		</meridien>
+		<symptomes>
+			<symptome>Douleur et œdème du 5ème orteil</symptome>
+			<symptome>Douleur tractive et filiforme de l'aisselle et du creux sus-claviculaire</symptome>
+			<symptome>Colonne vertébrale pliée à l'envers</symptome>
+			<symptome>Creux poplité contracté</symptome>
+			<symptome>Douleur et œdème du talon</symptome>
+			<symptome>Impossibilité de lever l'épaule</symptome>
+			<symptome>Muscles et ligaments de la nuques raidis</symptome>
+			<symptome>Peï du 2ème mois de printemps</symptome>
+		</symptomes>
+	</pathologie>
+	<pathologie>
+		<description>fu gros intestin plein</description>
+		<meridien>
+			<nom>Gros intestin</nom>
+			<categorie>yang</categorie>
+		</meridien>
+		<symptomes>
+			<symptome>Abdomen dilaté, douloureux et chaud</symptome>
+			<symptome>Agitation</symptome>
+			<symptome>Inflammation de la bouche</symptome>
+			<symptome>Constipation spasmodique</symptome>
+			<symptome>Douleur lombaire</symptome>
+			<symptome>Insomnie</symptome>
+			<symptome>Langue rouge</symptome>
+			<symptome>Parle en dormant</symptome>
+			<symptome>Sang dans les selles</symptome>
+			<symptome>Transpiration brusque</symptome>
+		</symptomes>
+	</pathologie>
+</pathologies>

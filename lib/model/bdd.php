@@ -6,14 +6,14 @@
 		function __construct() {
 			$this->connect();
 		}
-
+	
 		/**
 			Connexion à la base de données
 		*/
 		private function connect(){
 			try
 			{
-				$this->_bdd = new PDO('mysql:host=localhost;dbname=docteurping;charset=utf8', 'root', '');
+				$this->_bdd = new PDO('mysql:host=localhost;dbname=docteurping;charset=utf8', 'root', 'root');
 			}
 			catch(Exception $e)
 			{
@@ -30,7 +30,7 @@
 				return null;
 			}
 			$result = array();
-			
+
 			$query = $this->_bdd->prepare($preparedQuery);
 
 			$query->execute($args);

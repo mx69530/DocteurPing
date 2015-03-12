@@ -83,7 +83,7 @@
 							'</td>'.
 						'<td>';
 				foreach($element->getsymptoms() as $element2){
-					echo '<br>'.$element2->getdesc();
+					echo '<br> Symptome : '.$element2->getdesc();
 				}
 				echo '</td>';
 				echo '</tr>';
