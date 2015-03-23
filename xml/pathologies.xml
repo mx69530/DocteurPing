@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pathologies xmlns="schema.xml">
+<pathologies xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="schema.xsd">
 	<pathologie>
 		<description>jing jin de l'estomac</description>
 		<meridien>
 			<nom>Estomac</nom>
-			<categorie>yang</categorie>e
+			<categorie>yang</categorie>
 		</meridien>
 		<symptomes>
 			<symptome>Crampe aux 2ème, 3ème et 4ème orteils</symptome>
