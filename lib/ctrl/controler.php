@@ -19,19 +19,21 @@
 			$this->_smarty->setCompileDir('lib/view/templates_c');
 			$this->_smarty->setCacheDir('lib/view/cache');
 			$this->_smarty->setConfigDir('lib/view/configs');
-
+			$compte=" ";
 			if(($_SESSION['pseudo'])){
-				$compte = '<li>';
-				$compte += ' <a href="index.php?current=account">Mon compte</a>';
-				$compte += '</li>';
+				$compte .= '<li>';
+				$compte .= ' <a href="index.php?current=account">Mon compte</a>';
+				$compte .= '</li>';
 			}
-			
-			$connexion = '';
+			var_dump($compte);
+			$connexion = ' ';
 			if(($_SESSION['pseudo'])){
-				$connexion += ' <a href="index.php?current=logout">Deconnexion</a>';
+				$connexion .=' <a href="index.php?current=logout">Deconnexion</a>';
 			}else{
-				$connexion += ' <a href="index.php?current=login">Connexion</a>';
+				$connexion .= ' <a href="index.php?current=login">Connexion</a>';
 			}
+			var_dump($connexion);
+			var_dump($_SESSION['pseudo']);
 
 			$this->_smarty->assign('compte', $compte);
 			$this->_smarty->assign('connexion', $connexion);
@@ -112,12 +114,12 @@
 			
 			
 			if($current === 'consultation'){
-				$keyword = '';
+				$keywords = '';
 				if(($_SESSION['pseudo'])){
-					$keyword += '<h3>Mots-clef : </h3>';
-					$keyword += '<input class="groupBox" type="text" name="keyword" value="'.$this->getCurrentKeywords().'">';	
+					$keywords .= '<h3>Mots-clef : </h3>';
+					$keywords .= '<input class="groupBox" type="text" name="keyword" value="'.$this->getCurrentKeywords().'">';	
 				}
-				$this->_smarty->assign('keyword', $keyword);
+				$this->_smarty->assign('keywords', $keywords);
 				
 				$meridians = '';
 				$checkeds = $this->getSelectedMeridians();
@@ -126,10 +128,10 @@
 					$meridians = '<span class="ckBox"><label><input  type="checkbox" name="meridian'.$key.'" ';
 					foreach($checkeds as $checked){
 						if($checked === $element){
-							$meridians += "checked ";
+							$meridians .= "checked ";
 						}
 					}
-					$meridians += 'value="'.$element.'"/>'.$element.'</label></span>';
+					$meridians .= 'value="'.$element.'"/>'.$element.'</label></span>';
 				}
 				$this->_smarty->assign('meridians', $meridians);
 				
@@ -137,13 +139,13 @@
 				$checkeds = $this->getSelectedPathologyTypes();
 				$datas = array('méridien', 'organe/viscère', 'luo', 'merveilleux vaisseaux', 'jing jin');
 				foreach($datas as $key=>$element){
-					$pathologies += '<span class="ckBox"><label><input type="checkbox" name="pathologyType'.$key.'" ';
+					$pathologies .= '<span class="ckBox"><label><input type="checkbox" name="pathologyType'.$key.'" ';
 					foreach($checkeds as $checked){
 						if($checked === $element){
-							$pathologies += "checked ";
+							$pathologies .= "checked ";
 						}
 					}
-					$pathologies += 'value="'.$element.'">'.$element.'</label></span>';
+					$pathologies .= 'value="'.$element.'">'.$element.'</label></span>';
 				}
 				$this->_smarty->assign('pathologies', $pathologies);
 				
@@ -151,13 +153,13 @@
 				$checkeds = $this->getSelectedFeatures();
 				$datas = array('plein', 'chaud', 'vide', 'froid', 'interne', 'externe');
 				foreach($datas as $key=>$element){
-					$features += '<span class="ckBox"><input type="checkbox" name="feature'.$key.'" ';
+					$features .= '<span class="ckBox"><input type="checkbox" name="feature'.$key.'" ';
 					foreach($checkeds as $checked){
 						if($checked === $element){
-							$features += "checked ";
+							$features .= "checked ";
 						}
 					}
-					$features += 'value="'.$element.'">'.$element.'</label></span>';
+					$features .= 'value="'.$element.'">'.$element.'</label></span>';
 				}
 				$this->_smarty->assign('features', $features);
 				
@@ -165,15 +167,15 @@
 				$datas = $this->getSearchedPathologies();
 				if(isset($_GET['process'])){
 					if($_GET['process']=='search'){
-						$results += '<h2>Résultats:</h2>';
-						$results += '<table class="resultPatho">';
-						$results += '<tr>';
-						$results += '<td>Description</td>';
-						$results += '<td>Meridien</td>';
-						$results += '<td>Symptomes</td>';
-						$results += '</tr>';
+						$results .= '<h2>Résultats:</h2>';
+						$results .= '<table class="resultPatho">';
+						$results .= '<tr>';
+						$results .= '<td>Description</td>';
+						$results .= '<td>Meridien</td>';
+						$results .= '<td>Symptomes</td>';
+						$results .= '</tr>';
 						foreach($datas as $element){
-							$results +=  '<tr>'.
+							$results .=  '<tr>'.
 									'<td>'.$element->getdesc().'</td>'.
 										'<td>'.
 										'<br>Nom : '.$element->getmeridian()->getname().
@@ -181,20 +183,23 @@
 										'</td>'.
 									'<td>';
 							foreach($element->getsymptoms() as $element2){
-								$results +=  '<br>'.$element2->getdesc();
+								$results .=  '<br>'.$element2->getdesc();
 							}
-							$results +=  '</td>';
-							$results +=  '</tr>';
+							$results .=  '</td>';
+							$results .=  '</tr>';
 						}
-						$results += '</table>';
+						$results .= '</table>';
 					}
 				}
-				$this->_smarty->assign('result', $result);
-			
-				include('lib/view/consultation.php');
+				$this->_smarty->assign('results', $results);
+				
+				$this->_smarty->display('lib/view/templates/consultation.tpl');
+		
 			}
 			echo "</div>";
-			include('lib/view/footer.php'); 
+			
+			$this->_smarty->display('lib/view/templates/footer.tpl');
+		 
 			
 		}
 		

@@ -1,37 +1,37 @@
 <h2>Rechercher une pathologie</h2>
 <form action="index.php?current=consultation&process=search" method="POST">
 	<!-- ZONE MOTS CLEF -->
-	{keyword}
+	{$keywords}
 	<!---->
 	<!-- ZONE MERIDIEN -->
 	<h3>Méridiens :</h3>
 	<div class="groupBox">
-	{meridians}
+	{$meridians}
 	<!---->
 	</div>
 	
 	<!-- ZONE PATHOLOGIE -->
 	<h3>Type de pathologie :</h3>
 	<div class="groupBox">
-	{pathologies}			
+	{$pathologies}			
 	<!---->
 	</div>
 	
 	<!-- ZONE Caractéristiques -->
 	<h3>Caractéristiques :</h3>
 	<div class="groupBox">
-	{features}
+	{$features}
 	<!---->
 	</div>
 
 	<input type="submit" value="Rechercher">
-	</form>
-	<form action="index.php?current=consultation&process=clear" method="POST">
-		<input type="submit" value="RAZ">
-	</form>
+</form>
+<form action="index.php?current=consultation&process=clear" method="POST">
+	<input type="submit" value="RAZ">
+</form>
 	
 	
 	<!-- GESTION DES RESULTATS -->
-	{results}
+	{$results}
 	<!---->
-?>
+

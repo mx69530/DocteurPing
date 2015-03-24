@@ -5,7 +5,7 @@
 		<li>
 		   <a href="index.php?current=patho">Patologies</a>
 		</li>
-		<li>';
+		<li>
 		<a href="index.php?current=consultation">Recherche</a>
 		</li>
 		
