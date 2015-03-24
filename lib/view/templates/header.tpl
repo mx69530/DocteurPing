@@ -3,7 +3,7 @@
 	<nav>
 	  <ul>
 		<li>
-		   <a href="index.php?current=patho">Patologies</a>
+		   <a href="index.php?current=accueil">Accueil</a>
 		</li>
 		<li>
 		<a href="index.php?current=consultation">Recherche</a>

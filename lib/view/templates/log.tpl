@@ -1,12 +1,12 @@
 <div id='loginPage'> 
-	<form class="formBDD" method="post" action="index.php?current=log&process=login">
+	<form name="loginForm" class="formBDD" method="post" onsubmit="return validateForm()" action="index.php?current=log&process=login">
       <fieldset>
  		<legend>Se connecter</legend>
    		    <label for="pseudo">Pseudo :</label>
-    		   <input type="text" name="pseudo" id="pseudo" />
+    		   <input id="pseudo" onclick="checkPseudo();" onchange="checkPseudo();" type="text" name="pseudo" id="pseudo" required />
 		       <br />
 		       <label for="pass">Mot de passe :</label>
-		       <input type="password" name="pass" id="pass" />
+		       <input id="pass" onclick="checkPass();" onchange="checkPass();" type="password" name="pass" id="pass" required/>
 			   <br />
       </fieldset>
       <input type="submit" value="Valider" />
