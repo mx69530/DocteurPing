@@ -1,2 +1,0 @@
-RewriteRule ^/search/feature=([^/]+).png$ index.php?current=consultation&process=search&feature=$1 [L]
-RewriteRule ^.*$ index.php [L]

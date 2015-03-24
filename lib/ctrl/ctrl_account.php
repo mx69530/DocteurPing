@@ -19,7 +19,7 @@
 				$this->process_accountUpdate();
 			}
 			
-			if (($userAccount=$this->_repo->getAccount())!=null) {
+			if (($userAccount=$this->_user_manager->getAccount())!=null) {
 				$smarty->assign('nom', $userAccount->getNom());
 				$smarty->assign('prenom', $userAccount->getPrenom());
 				$smarty->assign('mail', $userAccount->getMail());

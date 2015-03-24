@@ -5,7 +5,13 @@
 		
 		public function __construct($smarty, $user_manager) {
 			$this->_user_manager=$user_manager;
-			$smarty->display('lib/view/templates/log.tpl');
+			
+			
+			if($_SESSION['pseudo']){
+				
+			}else{
+				$smarty->display('lib/view/templates/log.tpl');
+			}
 			
 			if(isset($_GET['process']) && $_GET['process']=='login'){
 				$this->process_login();
@@ -13,7 +19,7 @@
 			
 			if(isset($_GET['process']) && $_GET['process']=='logout'){
 				$this->process_logout();
-				header("Location:index.php?current=accueil"); // Header nécessaire pour affichage du menu utilisateur deconecté
+				header("Location:index.php?current=log"); // Header nécessaire pour affichage du menu utilisateur deconecté
 			}
 		}
 		
@@ -46,7 +52,7 @@
 				echo "<br>Vous n'êtes pas connecté<br>";
 			}
 	
-			header("Location:index.php?current=accueil"); // Header nécessaire pour affichage du menu utilisateur connecté
+			header("Location:index.php?current=log"); // Header nécessaire pour affichage du menu utilisateur connecté
 		}
 		
 		public function process_logout(){

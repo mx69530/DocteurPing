@@ -1,12 +1,20 @@
 <?php
 	class ControllerAccueil
 	{
-		private $_repo;
+		private $user_manager;
 		private $_smarty;
 		
-		public function __construct($smarty, $repo) {
-			$smarty->display('lib/view/templates/signup.tpl');
-			
+		public function __construct($smarty, $user_manager) {
+		
+		
+		if(($_SESSION['pseudo'])){
+			//$smarty->assign('mail', $userAccount->getMail());
+			$smarty->display('lib/view/templates/accueil.tpl');
+
+		}else{
+			$smarty->display('lib/view/templates/log.tpl');
+		}
+		
 			if(isset($_GET['process']) && $_GET['process']=='enregistrer'){
 				$this->process_signup();
 			}
