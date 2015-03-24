@@ -15,6 +15,7 @@
 	  <meta name="keywords" content="chinois, acuponcture">
 	  <meta name="author" content="Tanguy Falconnet - Maxime Servettaz">
 	  <link href="css/style.css" rel="stylesheet" type="text/css">
+	  <script type="text/javascript" src="js/script.js"></script>
 	</head>
 
 	<body>

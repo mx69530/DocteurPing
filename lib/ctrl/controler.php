@@ -48,15 +48,21 @@
 				}	
 			}
 			
-			if($current=='log' && $current=='signup' && $current=='account'){
+			if($current=='log' || $current=='signup' || $current=='account'){
 				include('lib/model/user_manager.php');
 				$this->_user_manager = new UserManager;
 			}
 				
+			//Controleur d'accueil
+			if($current=='log' ||$current=='' ){
+				include('lib/ctrl/ctrl_log.php');
+				new ControllerLog($this->_smarty, $this->_user_manager);		
+			}
+			
+			
 			//Controleur de connexion
 			if($current=='log'){
-				include('lib/ctrl/ctrl_log.php');
-				new ControllerLog($this->_smarty, $this->_user_manager);	
+				
 			}
 			
 			//Controleur d'enregistrement

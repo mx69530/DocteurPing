@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-24 15:08:24
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-24 16:50:51
          compiled from "lib\view\templates\signup.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2394655116fd8764e48-41528225%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '41a797e0b1b9a087facc23fffbf3a2531e7ec7dc' => 
     array (
       0 => 'lib\\view\\templates\\signup.tpl',
-      1 => 1427205604,
+      1 => 1427211866,
       2 => 'file',
     ),
   ),
@@ -15,9 +15,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
   'unifunc' => 'content_55116fd87915f5_29354396',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_55116fd87915f5_29354396')) {function content_55116fd87915f5_29354396($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="fr"> 
@@ -38,7 +38,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
            <input type="text" name="prenom" id="prenom" />
            <br />
            <label for="mail">Adresse mail :</label>
-           <input type="text" name="mail" id="mail" />
+           <input type="email" name="mail" id="mail" required />
            <br />
       </fieldset>
           <!-- <label for="dob">Date de naissance :</label>
@@ -48,10 +48,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       <fieldset>
         <legend>Compte</legend>    
            <label for="pseudo">Pseudo :</label>
-           <input type="text" name="pseudo" id="pseudo" />
+           <input type="text" name="pseudo" id="pseudo"  />
            <br />
            <label for="pass">Mot de passe :</label>
-           <input type="password" name="pass" id="pass" />
+           <input type="password" name="pass" id="pass"  />
       </fieldset>
       <input type="submit" value="Valider" />
 

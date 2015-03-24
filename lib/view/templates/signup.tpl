@@ -17,7 +17,7 @@
            <input type="text" name="prenom" id="prenom" />
            <br />
            <label for="mail">Adresse mail :</label>
-           <input type="text" name="mail" id="mail" />
+           <input type="email" name="mail" id="mail" required />
            <br />
       </fieldset>
           <!-- <label for="dob">Date de naissance :</label>
@@ -27,10 +27,10 @@
       <fieldset>
         <legend>Compte</legend>    
            <label for="pseudo">Pseudo :</label>
-           <input type="text" name="pseudo" id="pseudo" />
+           <input type="text" name="pseudo" id="pseudo"  />
            <br />
            <label for="pass">Mot de passe :</label>
-           <input type="password" name="pass" id="pass" />
+           <input type="password" name="pass" id="pass"  />
       </fieldset>
       <input type="submit" value="Valider" />
 
