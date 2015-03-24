@@ -1,10 +1,8 @@
 <?php
 	class ControllerHeader
 	{
-		private $_repo;
-		private $_smarty;
 		
-		public function __construct($smarty, $repo) {
+		public function __construct($smarty) {
 			$compte=" ";
 			if(($_SESSION['pseudo'])){
 				$compte .= '<li>';

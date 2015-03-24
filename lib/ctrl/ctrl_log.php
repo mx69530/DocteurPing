@@ -1,11 +1,10 @@
 <?php
 	class ControllerLog
 	{
-		private $_repo;
-		private $_smarty;
+		private $_user_manager;
 		
-		public function __construct($smarty, $repo) {
-			$this->_repo=$repo;
+		public function __construct($smarty, $user_manager) {
+			$this->_user_manager=$user_manager;
 			$smarty->display('lib/view/templates/log.tpl');
 			
 			if(isset($_GET['process']) && $_GET['process']=='login'){
@@ -31,7 +30,7 @@
 				$pass="";
 			}
 
-			if (($user=$this->_repo->checkUser($pseudo,$pass))!=null) 
+			if (($user=$this->_user_manager->checkUser($pseudo,$pass))!=null) 
 			{
 				$_SESSION['connect']=1; // Change la valeur de la variable connect. C'est elle qui nous permettra de savoir s'il y a eu identification.
 				$_SESSION['pseudo']=$pseudo;// Permet de récupérer le login afin de personnaliser la navigation.

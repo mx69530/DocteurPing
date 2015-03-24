@@ -1,13 +1,13 @@
 <?php
 	class ControllerAccount
 	{
-		private $_repo;
+		private $_user_manager;
 		
 		/**
 			Contructeur
 		*/
-		public function __construct($smarty, $repo) {
-			$this->_repo = $repo;
+		public function __construct($smarty, $user_manager) {
+			$this->_user_manager = $user_manager;
 		
 			if (isset($_GET["action"])){
 				$action=$_GET["action"];
@@ -39,7 +39,7 @@
 			if (isset($_POST['prenom'])) {$prenom=$_POST['prenom'];}else{$prenom="";}
 			if (isset($_POST['mail'])) {$mail=$_POST['mail'];}else{$mail="";}
 			
-			$this->_repo->updateUser($pseudo,$pass,$nom,$prenom,$mail);			
+			$this->_user_manager->updateUser($pseudo,$pass,$nom,$prenom,$mail);			
 		}
 		
 	}

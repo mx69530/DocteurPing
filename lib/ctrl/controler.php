@@ -1,16 +1,14 @@
 <?php
 	class Controller
 	{
-		private $_repo;
+		private $_consultations;
+		private $_user_manager;
 		private $_smarty;
 
 		/**
 			Contructeur
 		*/
 		public function __construct() {
-			include('lib/model/repository.php');
-			$this->_repo = new Repository;
-			
 			//Init smarty
 			require('Smarty/Smarty.class.php');
 			$this->_smarty = new Smarty();
@@ -22,7 +20,7 @@
 			
 			//Controleur de pied de page
 			include('lib/ctrl/ctrl_header.php');
-			new ControllerHeader($this->_smarty, $this->_repo);
+			new ControllerHeader($this->_smarty);
 		}
 
 		/**
@@ -49,36 +47,44 @@
 					
 				}	
 			}
+			
+			if($current=='log' && $current=='signup' && $current=='account'){
+				include('lib/model/user_manager.php');
+				$this->_user_manager = new UserManager;
+			}
 				
 			//Controleur de connexion
 			if($current=='log'){
 				include('lib/ctrl/ctrl_log.php');
-				new ControllerLog($this->_smarty, $this->_repo);	
+				new ControllerLog($this->_smarty, $this->_user_manager);	
 			}
 			
 			//Controleur d'enregistrement
 			if($current=='signup'){
 				include('lib/ctrl/ctrl_signup.php');
-				new ControllerSignup($this->_smarty, $this->_repo);	
+				new ControllerSignup($this->_smarty, $this->_user_manager);	
 			}
 			
 			//Controleur de compte
 			if($current=='account'){
 				include('lib/ctrl/ctrl_account.php');
-				new ControllerAccount($this->_smarty, $this->_repo);
+				new ControllerAccount($this->_smarty, $this->_user_manager);
 			}
 			
 			//Controleur de consultation
 			if($current === 'consultation'){
 				include('lib/ctrl/ctrl_consultation.php');
-				new ControllerConsultation($this->_smarty, $this->_repo);	
+				include('lib/model/consultations.php');
+				
+				$this->_consultations = new Consultations;
+				new ControllerConsultation($this->_smarty, $this->_consultations);	
 			}
 			
 			echo "</div>";
 			
 			//Controleur de bas de page
 			include('lib/ctrl/ctrl_footer.php');
-			new ControllerFooter($this->_smarty, $this->_repo);	
+			new ControllerFooter($this->_smarty);	
 			
 		}
 		

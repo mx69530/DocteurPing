@@ -1,10 +1,10 @@
 <?php
 	class ControllerSignup
 	{
-		private $_repo;
-		private $_smarty;
+		private $_user_manager;
 		
-		public function __construct($smarty, $repo) {
+		public function __construct($smarty, $user_manager) {
+			$this->_user_manager = $user_manager;
 			$smarty->display('lib/view/templates/signup.tpl');
 			
 			if(isset($_GET['process']) && $_GET['process']=='enregistrer'){
@@ -20,7 +20,7 @@
 				$pseudo=$_POST['pseudo'];
 				$pass=$_POST['pass'];
 				
-				//$this->_repo->insertUser($pseudo,$pass,$nom,$prenom,$mail);
+				$this->_user_manager->insertUser($pseudo,$pass,$nom,$prenom,$mail);
 			}
 		}
 	}
