@@ -2,6 +2,7 @@
 	class Controller
 	{
 		private $_repo;
+		private $_smarty;
 
 		/**
 			Contructeur
@@ -9,13 +10,39 @@
 		public function __construct() {
 			include('lib/model/repository.php');
 			$this->_repo = new Repository;
+			
+			//Init smarty
+			require('Smarty/Smarty.class.php');
+			$this->_smarty = new Smarty();
+
+			$this->_smarty->setTemplateDir('lib/view/templates');
+			$this->_smarty->setCompileDir('lib/view/templates_c');
+			$this->_smarty->setCacheDir('lib/view/cache');
+			$this->_smarty->setConfigDir('lib/view/configs');
+
+			if(($_SESSION['pseudo'])){
+				$compte = '<li>';
+				$compte += ' <a href="index.php?current=account">Mon compte</a>';
+				$compte += '</li>';
+			}
+			
+			$connexion = '';
+			if(($_SESSION['pseudo'])){
+				$connexion += ' <a href="index.php?current=logout">Deconnexion</a>';
+			}else{
+				$connexion += ' <a href="index.php?current=login">Connexion</a>';
+			}
+
+			$this->_smarty->assign('compte', $compte);
+			$this->_smarty->assign('connexion', $connexion);
+			$this->_smarty->display('lib/view/templates/header.tpl');
 		}
 
 		/**
 			Affichage de la vue dans index.php
 		*/
 		public function currentView(){
-			include('lib/view/header.php');
+			
 
 
 			
@@ -49,7 +76,7 @@
 			}
 				
 			if($current=='login'){
-					include('lib/view/login.php');
+					$this->_smarty->display('lib/view/templates/login.tpl');
 			}
 			
 			
@@ -71,7 +98,12 @@
 				}
 				
 				if (($userAccount=$this->_repo->getAccount())!=null) {
-					include('lib/view/account.php');
+					$this->_smarty->assign('nom', $userAccount->getNom());
+					$this->_smarty->assign('prenom', $userAccount->getPrenom());
+					$this->_smarty->assign('mail', $userAccount->getMail());
+					$this->_smarty->assign('login', $userAccount->getLogin());
+					$this->_smarty->assign('pass', $userAccount->getPass());
+					$this->_smarty->display('lib/view/templates/account.tpl');
 				}else{
 					echo'ERREUR : Impossible de récuperer les information du compte';
 				}
@@ -80,6 +112,85 @@
 			
 			
 			if($current === 'consultation'){
+				$keyword = '';
+				if(($_SESSION['pseudo'])){
+					$keyword += '<h3>Mots-clef : </h3>';
+					$keyword += '<input class="groupBox" type="text" name="keyword" value="'.$this->getCurrentKeywords().'">';	
+				}
+				$this->_smarty->assign('keyword', $keyword);
+				
+				$meridians = '';
+				$checkeds = $this->getSelectedMeridians();
+				$datas = $this->getMeridianNames();
+				foreach($datas as $key=>$element){
+					$meridians = '<span class="ckBox"><label><input  type="checkbox" name="meridian'.$key.'" ';
+					foreach($checkeds as $checked){
+						if($checked === $element){
+							$meridians += "checked ";
+						}
+					}
+					$meridians += 'value="'.$element.'"/>'.$element.'</label></span>';
+				}
+				$this->_smarty->assign('meridians', $meridians);
+				
+				$pathologies = '';
+				$checkeds = $this->getSelectedPathologyTypes();
+				$datas = array('méridien', 'organe/viscère', 'luo', 'merveilleux vaisseaux', 'jing jin');
+				foreach($datas as $key=>$element){
+					$pathologies += '<span class="ckBox"><label><input type="checkbox" name="pathologyType'.$key.'" ';
+					foreach($checkeds as $checked){
+						if($checked === $element){
+							$pathologies += "checked ";
+						}
+					}
+					$pathologies += 'value="'.$element.'">'.$element.'</label></span>';
+				}
+				$this->_smarty->assign('pathologies', $pathologies);
+				
+				$features = '';
+				$checkeds = $this->getSelectedFeatures();
+				$datas = array('plein', 'chaud', 'vide', 'froid', 'interne', 'externe');
+				foreach($datas as $key=>$element){
+					$features += '<span class="ckBox"><input type="checkbox" name="feature'.$key.'" ';
+					foreach($checkeds as $checked){
+						if($checked === $element){
+							$features += "checked ";
+						}
+					}
+					$features += 'value="'.$element.'">'.$element.'</label></span>';
+				}
+				$this->_smarty->assign('features', $features);
+				
+				$results = '';
+				$datas = $this->getSearchedPathologies();
+				if(isset($_GET['process'])){
+					if($_GET['process']=='search'){
+						$results += '<h2>Résultats:</h2>';
+						$results += '<table class="resultPatho">';
+						$results += '<tr>';
+						$results += '<td>Description</td>';
+						$results += '<td>Meridien</td>';
+						$results += '<td>Symptomes</td>';
+						$results += '</tr>';
+						foreach($datas as $element){
+							$results +=  '<tr>'.
+									'<td>'.$element->getdesc().'</td>'.
+										'<td>'.
+										'<br>Nom : '.$element->getmeridian()->getname().
+										'<br>Catégorie : '.$element->getmeridian()->getyin().
+										'</td>'.
+									'<td>';
+							foreach($element->getsymptoms() as $element2){
+								$results +=  '<br>'.$element2->getdesc();
+							}
+							$results +=  '</td>';
+							$results +=  '</tr>';
+						}
+						$results += '</table>';
+					}
+				}
+				$this->_smarty->assign('result', $result);
+			
 				include('lib/view/consultation.php');
 			}
 			echo "</div>";

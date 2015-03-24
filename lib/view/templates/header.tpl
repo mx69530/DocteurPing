@@ -1,5 +1,4 @@
-<?php
-	echo'<header>
+<header>
 	<span class="titre">DocteurPing</span>
 	<nav>
 	  <ul>
@@ -7,26 +6,18 @@
 		   <a href="index.php?current=patho">Patologies</a>
 		</li>
 		<li>';
-		echo' <a href="index.php?current=consultation">Recherche</a>';	
-		echo'</li>';
-			if(($_SESSION['pseudo'])){
-				echo'<li>';
-				echo' <a href="index.php?current=account">Mon compte</a>';
-				echo'</li>';
-			}
+		<a href="index.php?current=consultation">Recherche</a>
+		</li>
+		
+		{$compte}
 
-		echo'<li>
-				<a href="index.php?current=fluxRSS">Flux RSS</a>
+		<li>
+			<a href="index.php?current=fluxRSS">Flux RSS</a>
 			</li>
-			<li>';
-			if(($_SESSION['pseudo'])){
-				echo' <a href="index.php?current=logout">Deconnexion</a>';
-			}else{
-				echo' <a href="index.php?current=login">Connexion</a>';
-			}
-			echo'</li>
+			<li>
+			{$connexion}
+			</li>
 		
 	  </ul>
 	</nav>
-</header>';
-?>
+</header>
