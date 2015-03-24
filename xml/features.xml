@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="transfoRSS.xsl" ?>
+<rss xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="rss.xsd" version="2.0">
+    <channel>
+        <title>La charactéristique "Plein"</title>
+        <link>http://localhost/DocteurPing/search/feature=plein</link>
+        <description>Affichage de toutes les pathologies avec la caractéristiques "plein"</description>
+        <item>
+            <title></title>
+            <description></description>
+        </item>
+    </channel>
+    <channel>
+        <title>La charctéristique "Chaud"</title>
+        <link>http://localhost/DocteurPing/search/feature=chaud</link>
+        <description>Affichage de toutes les pathologies avec la caractéristiques "chaud"</description>
+        <item>
+            <title></title>
+            <description></description>
+        </item>
+    </channel>
+</rss>
