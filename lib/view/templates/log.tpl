@@ -1,5 +1,5 @@
 <div id='loginPage'> 
-	<form class="formBDD" method="post" action="index.php?current=connexion">
+	<form class="formBDD" method="post" action="index.php?current=signup&process=log">
       <fieldset>
  		<legend>Se connecter</legend>
    		    <label for="pseudo">Pseudo :</label>

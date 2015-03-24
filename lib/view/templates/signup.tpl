@@ -7,7 +7,7 @@
   <link href="../css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <form class="formBDD" method="post" action="process_signup.php">
+    <form class="formBDD" action="index.php?current=signup&process=enregistrer" method="POST">
       <fieldset>
         <legend>Informations personnels</legend>
            <label for="nom">Nom :</label>
