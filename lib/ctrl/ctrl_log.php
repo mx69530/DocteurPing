@@ -5,6 +5,7 @@
 		private $_smarty;
 		
 		public function __construct($smarty, $repo) {
+			$this->_repo=$repo;
 			$smarty->display('lib/view/templates/log.tpl');
 			
 			if(isset($_GET['process']) && $_GET['process']=='login'){
