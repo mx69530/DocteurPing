@@ -1,5 +1,4 @@
 Options +FollowSymlinks
 RewriteEngine On
-RewriteRule ^([a-z]+)-([a-z]+)$ ?controller=$1&action=$2 [L]
-RewriteRule ^([a-z]+/?)$ ?controller=$1 [L]
+RewriteRule ^/view/feature/([a-z]+)$ /current=consultation&process=search&feature$1 [L]
 RewriteRule ^.*$ index.php [L]
