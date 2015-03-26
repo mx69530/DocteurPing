@@ -6,17 +6,15 @@
 		   <a href="index.php?current=log">Accueil</a>
 		</li>
 		<li>
-		<a href="index.php?current=consultation">Recherche</a>
+			<a href="index.php?current=consultation">Recherche</a>
 		</li>
-		
-		{$compte}
-
+			{$compte}
 		<li>
 			<a href="index.php?current=fluxRSS">Flux RSS</a>
-			</li>
-			<li>
+		</li>
+		<li>
 			{$connexion}
-			</li>
+		</li>
 		
 	  </ul>
 	</nav>

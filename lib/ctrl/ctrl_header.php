@@ -13,6 +13,8 @@
 			$connexion = ' ';
 			if(($_SESSION['pseudo'])){
 				$connexion .=' <a href="index.php?current=log&process=logout">Deconnexion</a>';
+			}else{
+				$connexion .=' <a href="index.php?current=signup">S\'inscrire</a>';
 			}
 
 			$smarty->assign('compte', $compte);

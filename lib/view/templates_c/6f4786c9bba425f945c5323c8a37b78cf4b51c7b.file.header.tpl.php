@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-24 17:15:54
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-26 17:24:05
          compiled from "lib\view\templates\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:121455113fc74eb245-23597447%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6f4786c9bba425f945c5323c8a37b78cf4b51c7b' => 
     array (
       0 => 'lib\\view\\templates\\header.tpl',
-      1 => 1427213752,
+      1 => 1427386990,
       2 => 'file',
     ),
   ),
@@ -32,19 +32,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		   <a href="index.php?current=log">Accueil</a>
 		</li>
 		<li>
-		<a href="index.php?current=consultation">Recherche</a>
+			<a href="index.php?current=consultation">Recherche</a>
 		</li>
-		
-		<?php echo $_smarty_tpl->tpl_vars['compte']->value;?>
-
+			<?php echo $_smarty_tpl->tpl_vars['compte']->value;?>
 
 		<li>
 			<a href="index.php?current=fluxRSS">Flux RSS</a>
-			</li>
-			<li>
+		</li>
+		<li>
 			<?php echo $_smarty_tpl->tpl_vars['connexion']->value;?>
 
-			</li>
+		</li>
 		
 	  </ul>
 	</nav>

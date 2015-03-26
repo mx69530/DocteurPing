@@ -19,10 +19,7 @@
 			array_push($parameters, $pass);
 			$query="SELECT * FROM users WHERE login like ? and mdp like ?";
 			$datas = $this->_bdd->executeQuery($query, $parameters);
-			
-			var_dump($datas);
-			
-			
+				
 			if(empty($datas[0])){
 				return null;
 			}else{
@@ -43,6 +40,22 @@
 				return $user;
 			}	
 		}
+		
+		
+		public function getLogin($login){
+			$parameters=array();
+			array_push($parameters, $login);
+			$query="SELECT * FROM users WHERE login like ?";
+			$datas = $this->_bdd->executeQuery($query, $parameters);
+			if(empty($datas[0])){
+				return false; //l'usager n'existe pas
+			}else{
+				return true; // l'usager existe deja
+			}	
+		}
+		
+		
+		
 		
 		public function updateUser($pseudo,$pass,$nom,$prenom,$mail){
 			$parameters=array();
@@ -84,7 +97,6 @@
 			$sql .= 'VALUES (?, ?, ?, ?, ?);';
 			
 			$this->_bdd->executeQuery($sql,$parameters);
-
 		}
 	}
 ?>

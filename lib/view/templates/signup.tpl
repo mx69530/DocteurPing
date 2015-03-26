@@ -7,6 +7,9 @@
   <link href="../css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+	<div class="error">
+		{$errors}
+	</div>
     <form class="formBDD" action="index.php?current=signup&process=enregistrer" method="POST">
       <fieldset>
         <legend>Informations personnels</legend>

@@ -1,2 +1,3 @@
-COUCOCU
-COUCOCU
+<div>
+	{$infoUser}
+</div>

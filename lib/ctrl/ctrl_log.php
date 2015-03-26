@@ -2,13 +2,23 @@
 	class ControllerLog
 	{
 		private $_user_manager;
+		private $_smarty;
+		private $_errors;
 		
 		public function __construct($smarty, $user_manager) {
 			$this->_user_manager=$user_manager;
-			
+			$this->_smarty = $smarty;
 			
 			if($_SESSION['pseudo']){
+			
+				$infoUser='';
+				$infoUser.='<br>Pseudo :'.$_SESSION['pseudo'];
+				$infoUser.='<br>Nom :'.$_SESSION['nom'];
+				$infoUser.='<br>Prenom :'.$_SESSION['prenom'];
+				$infoUser.='<br>ID User:'.$_SESSION['idUser'];
 				
+				$this->_smarty->assign('infoUser',$infoUser);
+				$smarty->display('lib/view/templates/accueil.tpl');
 			}else{
 				$smarty->display('lib/view/templates/log.tpl');
 			}
@@ -53,6 +63,7 @@
 			}
 	
 			header("Location:index.php?current=log"); // Header nécessaire pour affichage du menu utilisateur connecté
+		
 		}
 		
 		public function process_logout(){
