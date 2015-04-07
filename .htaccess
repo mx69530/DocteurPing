@@ -1,4 +1,3 @@
-
 #Options +FollowSymlinks
 #RewriteEngine On
 #RewriteRule ^/view/feature/([a-z]+)$ /current=consultation&process=search&feature$1 [L]
