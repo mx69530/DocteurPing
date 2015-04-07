@@ -1,4 +1,8 @@
 #Options +FollowSymlinks
-#RewriteEngine On
-#RewriteRule ^/view/feature/([a-z]+)$ /current=consultation&process=search&feature$1 [L]
-#RewriteRule ^.*$ index.php [L]
+RewriteEngine On
+RewriteRule ^view/feature/([a-z]+)$ index.php?current=consultation&process=search&feature=$1 [L]
+RewriteRule ^ascii/([a-z]+)$ ws/webservice.php?name=$1 [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule ^.*$ index.php [L]
