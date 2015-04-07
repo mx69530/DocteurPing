@@ -60,7 +60,7 @@
 			$datas = $this->getSearchedPathologies();
 			if(isset($_GET['process']) && $_GET['process']=='search'){
 				$results .= '<h2>Résultats:</h2>';
-				$results .= '<table class="resultPatho">';
+				$results .= '<table title="Resultats recherche" class="resultPatho">';
 				$results .= '<tr>';
 				$results .= '<td>Description</td>';
 				$results .= '<td>Meridien</td>';
