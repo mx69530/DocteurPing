@@ -1,7 +1,7 @@
 <div class="error">
 	{$errors}
 </div>
-<form class="formBDD" action="index.php?current=signup&process=enregistrer" method="POST">
+<form class="formBDD" action="index.php?current=signup&amp;process=enregistrer" method="POST">
   <fieldset>
 	<legend>Informations personnels</legend>
 	   <label for="nom">Nom :</label>

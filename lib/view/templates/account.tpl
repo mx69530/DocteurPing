@@ -3,20 +3,20 @@
 	<legend>Informations personnels</legend>
 	   <label for="nom">Nom :</label>
 	   <input type="text" name="nom" id="nom" value="{$nom}" />
-	   <br />
-	   <label for="prenom">Prénom :</label>
+	   <br/>
+	   <label for="prenom">Prenom :</label>
 	   <input type="text" name="prenom" id="prenom" value="{$prenom}"/>
-	   <br />
+	   <br/>
 	   <label for="mail">Adresse mail :</label>
 	   <input type="text" name="mail" id="mail" value="{$mail}"/>
-	   <br />
+	   <br/>
   </fieldset>
   
   <fieldset>
 	<legend>Compte</legend>    
 	   <label for="pseudo">Pseudo :</label>
 	   <input type="text" name="pseudo" id="pseudo"  value="{$login}" disabled="disabled" />
-	   <br />
+	   <br>
 	   <label for="pass">Mot de passe :</label>
 	   <input type="password" name="pass" id="pass" value="{$pass}"/>
   </fieldset>

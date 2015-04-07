@@ -7,7 +7,7 @@
 // specify new pixel size, filename, and create the gd source image for parsing 
 $pixel_size = 5; 
 $filename = "../img/".strtolower($_GET["name"]).".jpg"; 
-if(!file_exist($filename)){
+if(!file_exists($filename)){
 	die("Image non trouvée");
 }
 $source = imagecreatefromjpeg($filename);   
@@ -21,7 +21,7 @@ $step_amount = 765 / strlen($char_sets[$char_id]);
 $steps = array(); 
 for($i=0; $i<=strlen($char_sets[$char_id]); $i++) 
 { 
-	$steps[$i] = $low+($i*$step_amount); 
+	$steps[$i] = ($i*$step_amount); 
 }   
 // get sizes, so we know how many pixels to parse through 
 $source_size = getimagesize($filename); 
