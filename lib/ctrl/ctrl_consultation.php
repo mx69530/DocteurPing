@@ -7,6 +7,7 @@
 		public function __construct($smarty, $repo) {
 			$this->_repo = $repo;
 			$keywords = '';
+			
 			if(($_SESSION['pseudo'])){
 				$keywords .= '<h3>Mots-clef : </h3>';
 				$keywords .= '<input class="groupBox" type="text" name="keyword" value="'.$this->getCurrentKeywords().'">';	
@@ -17,7 +18,7 @@
 			$checkeds = $this->getSelectedMeridians();
 			$datas = $this->getMeridianNames();
 			foreach($datas as $key=>$element){
-				$meridians = '<span class="ckBox"><label><input  type="checkbox" name="meridian'.$key.'" ';
+				$meridians = '<span class="ckBox"><label title="meridian'.$key.'" for="meridian'.$key.'"><input title="meridian'.$key.'" id="meridian'.$key.'" type="checkbox" name="meridian'.$key.'" ';
 				foreach($checkeds as $checked){
 					if($checked === $element){
 						$meridians .= "checked ";
@@ -45,7 +46,7 @@
 			$checkeds = $this->getSelectedFeatures();
 			$datas = array('plein', 'chaud', 'vide', 'froid', 'interne', 'externe');
 			foreach($datas as $key=>$element){
-				$features .= '<span class="ckBox"><input type="checkbox" name="feature'.$key.'" ';
+				$features .= '<span class="ckBox"><label><input title="feature'.$key.'" type="checkbox" name="feature'.$key.'" ';
 				foreach($checkeds as $checked){
 					if($checked === $element){
 						$features .= "checked ";
