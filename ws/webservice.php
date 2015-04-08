@@ -56,6 +56,7 @@ for($y=0; $y<$h; $y+=$pixel_size)
 	$ascii_output .= "<br />"; 
 }   
 // out the original image and the generated ascii 
-echo "<img src=\"$filename\" /><br />"; 
+
 echo $ascii_output;
+echo "<img src=\"$filename\" /><br />"; 
 ?>

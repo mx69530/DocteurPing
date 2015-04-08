@@ -1,6 +1,6 @@
 #Options +FollowSymlinks
 RewriteEngine On
-RewriteRule ^view/feature/([a-z]+)$ index.php?current=consultation&process=search&feature=$1 [L]
+RewriteRule ^fluxrss/([a-z]+)$ xml/$1.xml [L]
 RewriteRule ^ascii/([a-z]+)$ ws/webservice.php?name=$1 [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

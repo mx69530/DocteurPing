@@ -18,7 +18,7 @@
 			$checkeds = $this->getSelectedMeridians();
 			$datas = $this->getMeridianNames();
 			foreach($datas as $key=>$element){
-				$meridians = '<span class="ckBox"><label title="meridian'.$key.'" for="meridian'.$key.'"><input title="meridian'.$key.'" id="meridian'.$key.'" type="checkbox" name="meridian'.$key.'" ';
+				$meridians .= '<span class="ckBox"><label title="meridian'.$key.'" for="meridian'.$key.'"><input title="meridian'.$key.'" id="meridian'.$key.'" type="checkbox" name="meridian'.$key.'" ';
 				foreach($checkeds as $checked){
 					if($checked === $element){
 						$meridians .= "checked ";

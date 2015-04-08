@@ -86,6 +86,15 @@
 				new ControllerConsultation($this->_smarty, $this->_consultations);	
 			}
 			
+			//Controleur de fluxrss
+			if($current === 'fluxRSS'){
+				include('lib/ctrl/ctrl_fluxrss.php');
+				include('lib/model/fluxrss.php');
+				
+				$fluxrss = new FluxRSS;
+				new ControllerFluxRSS($this->_smarty, $fluxrss);	
+			}
+			
 			echo "</div>";
 			
 			//Controleur de bas de page

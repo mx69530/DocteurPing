@@ -8,19 +8,7 @@
   indent="yes" />
   
 	<xsl:template match="/">
-	  <html>
-		  <head>
-			  	<title>XML</title>
-				<meta charset="UTF-8"/>
-				<meta name="description" content="Truc de chinois"/>
-				<meta name="keywords" content="chinois, acuponcture"/>
-				<meta name="author" content="Tanguy Falconnet - Maxime Servettaz"/>
-				<link href="../css/rss.css" rel="stylesheet" type="text/css"/>
-		  </head>
-		  <body>
-			  <xsl:apply-templates select="*|text()|processing-instruction()" />
-		  </body>
-	  </html>
+	  <xsl:apply-templates select="*|text()|processing-instruction()" />
 	</xsl:template>
 	
 	<xsl:template match="channel">
@@ -37,7 +25,7 @@
 		</div>-->
 	</xsl:template>
 	
-	<xsl:template match="title"><h1><xsl:value-of select="."/></h1></xsl:template>
+	<xsl:template match="title"><h2><xsl:value-of select="."/></h2></xsl:template>
 	<xsl:template match="link"><a><xsl:attribute name="href"><xsl:value-of select="."/></xsl:attribute>Lien</a></xsl:template>
 	<xsl:template match="description"><p><xsl:value-of select="."/></p></xsl:template>
   

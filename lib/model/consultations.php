@@ -83,7 +83,7 @@
 				$query .= "p.desc like ? ";
 				array_push($parameters, $feature);
 			}
-			$query .= ") LIMIT 20";
+			$query .= ")";
 
 			$datas = $this->_bdd->executeQuery($query, $parameters);
 			//Instancie les objets

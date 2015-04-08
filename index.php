@@ -16,6 +16,7 @@
 	  <meta name="author" content="Tanguy Falconnet - Maxime Servettaz">
 	  <link href="css/style.css" rel="stylesheet" type="text/css">
 	  <script type="text/javascript" src="js/script.js"></script>
+	  <link rel="stylesheet" type="text/css" href="css/print.css" media="print">
 	</head>
 
 	<body>
