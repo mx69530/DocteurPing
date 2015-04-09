@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-04-07 17:42:17
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-04-09 14:05:42
          compiled from "lib\view\templates\consultation.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:26960551160c76675c7-41529601%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8544b9b5dac66fdad03bcde540faae1fe94deaff' => 
     array (
       0 => 'lib\\view\\templates\\consultation.tpl',
-      1 => 1428421329,
+      1 => 1428581082,
       2 => 'file',
     ),
   ),
@@ -29,7 +29,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_551160c76c3724_38623472')) {function content_551160c76c3724_38623472($_smarty_tpl) {?><h1>.</h1>
 <h2>Rechercher une pathologie</h2>
-<form action="index.php?current=consultation&amp;process=search" method="POST">
+<form action="index.php?current=consultation&process=search" method="POST">
 	<!-- ZONE MOTS CLEF -->
 	<?php echo $_smarty_tpl->tpl_vars['keywords']->value;?>
 
@@ -60,7 +60,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 	<input type="submit" value="Rechercher">
 </form>
-<form action="index.php?current=consultation&amp;process=clear" method="POST">
+<form action="index.php?current=consultation&process=clear" method="POST">
 	<input type="submit" value="RAZ">
 </form>
 	

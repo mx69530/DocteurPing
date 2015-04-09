@@ -41,10 +41,10 @@
 							$this->_errors.="<br>Votre mail n'est pas correct";
 						}
 						if(strlen($pseudo)<=5){
-							$this->_errors.="<br>Votre pseudo doit contenir au moin 5 caractères";
+							$this->_errors.="<br>Votre pseudo doit contenir au moins 5 caractères";
 						}
 						if(strlen($passlog)<=5){
-							$this->_errors.="<br>Votre mot de passe doit contenir au moin 5 caractères<br>";
+							$this->_errors.="<br>Votre mot de passe doit contenir au moins 5 caractères<br>";
 						}	
 					}
 				}else{

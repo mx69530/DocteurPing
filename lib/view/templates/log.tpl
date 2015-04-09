@@ -1,5 +1,5 @@
 <div id='loginPage'> 
-	<form name="loginForm" class="formBDD" method="post" onsubmit="return validateForm()" action="index.php?current=logamp;process=login">
+	<form name="loginForm" class="formBDD" method="post" onsubmit="return validateForm()" action="index.php?current=log&process=login">
       <fieldset>
  		<legend>Se connecter</legend>
    		    <label for="pseudo">Pseudo :</label>

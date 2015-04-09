@@ -16,6 +16,7 @@
 				$infoUser.='<br>Nom :'.$_SESSION['nom'];
 				$infoUser.='<br>Prenom :'.$_SESSION['prenom'];
 				$infoUser.='<br>ID User:'.$_SESSION['idUser'];
+				$infoUser.='<img id="logo" src="img/ying.png" alt="ying.png" />';
 				
 				$this->_smarty->assign('infoUser',$infoUser);
 				$smarty->display('lib/view/templates/accueil.tpl');

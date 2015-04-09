@@ -1,6 +1,6 @@
 <h1>.</h1>
 <h2>Rechercher une pathologie</h2>
-<form action="index.php?current=consultation&amp;process=search" method="POST">
+<form action="index.php?current=consultation&process=search" method="POST">
 	<!-- ZONE MOTS CLEF -->
 	{$keywords}
 	<!---->
@@ -27,7 +27,7 @@
 
 	<input type="submit" value="Rechercher">
 </form>
-<form action="index.php?current=consultation&amp;process=clear" method="POST">
+<form action="index.php?current=consultation&process=clear" method="POST">
 	<input type="submit" value="RAZ">
 </form>
 	

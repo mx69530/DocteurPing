@@ -30,6 +30,12 @@ margin-top:0.5em;
 margin-bottom:0.5em;
 } 
 
+#logo{
+width:15em;
+float:right;
+
+}
+
  .error{
 	color:red;
  }
@@ -177,7 +183,7 @@ margin:auto;
 	margin-right:5%;
 	padding: 2em;
 	text-align:justify;
-
+	min-height:300px;
 }
 
 

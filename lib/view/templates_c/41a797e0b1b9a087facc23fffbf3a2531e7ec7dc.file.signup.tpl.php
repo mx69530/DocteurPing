@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-04-09 14:00:51
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-04-09 17:07:55
          compiled from "lib\view\templates\signup.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2394655116fd8764e48-41528225%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '41a797e0b1b9a087facc23fffbf3a2531e7ec7dc' => 
     array (
       0 => 'lib\\view\\templates\\signup.tpl',
-      1 => 1428421324,
+      1 => 1428581121,
       2 => 'file',
     ),
   ),
@@ -27,7 +27,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	<?php echo $_smarty_tpl->tpl_vars['errors']->value;?>
 
 </div>
-<form class="formBDD" action="index.php?current=signup&amp;process=enregistrer" method="POST">
+<form class="formBDD" action="index.php?current=signup&process=enregistrer" method="POST">
   <fieldset>
 	<legend>Informations personnels</legend>
 	   <label for="nom">Nom :</label>

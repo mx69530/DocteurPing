@@ -33,7 +33,7 @@
 
 			if (isset($_GET["current"])){
 				$current=$_GET["current"];
-				echo 'La page courante est : '.$current;
+				/*echo 'La page courante est : '.$current;*/
 			}else{
 				$current='';
 			}
