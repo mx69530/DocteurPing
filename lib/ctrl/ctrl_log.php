@@ -3,16 +3,31 @@
 	{
 		private $_user_manager;
 		private $_smarty;
-		private $_errors;
+		private $_errorsLog;
 		
 		public function __construct($smarty, $user_manager) {
 			$this->_user_manager=$user_manager;
 			$this->_smarty = $smarty;
+			//gestion des erreurs de connexion
+			$this->_errorsLog = '';
+
+						
+			if(isset($_GET['process']) && $_GET['process']=='login'){
+				$this->process_login();
+			
+			}
+			
+			if(isset($_GET['process']) && $_GET['process']=='logout'){
+				$this->process_logout();
+				header("Location:index.php?current=log"); // Header nécessaire pour affichage du menu utilisateur deconecté
+			}
+			$this->_smarty->assign('errorsLog',$this->_errorsLog);
+
 			
 			if($_SESSION['pseudo']){
 			
-				$infoUser='';
-				$infoUser.='<br>Pseudo :'.$_SESSION['pseudo'];
+				$infoUser='Bienvenue'.$_SESSION['prenom'].', voici vos informations personnelles';
+				$infoUser.='<br><br>Pseudo :'.$_SESSION['pseudo'];
 				$infoUser.='<br>Nom :'.$_SESSION['nom'];
 				$infoUser.='<br>Prenom :'.$_SESSION['prenom'];
 				$infoUser.='<br>ID User:'.$_SESSION['idUser'];
@@ -23,15 +38,8 @@
 			}else{
 				$smarty->display('lib/view/templates/log.tpl');
 			}
-			
-			if(isset($_GET['process']) && $_GET['process']=='login'){
-				$this->process_login();
-			}
-			
-			if(isset($_GET['process']) && $_GET['process']=='logout'){
-				$this->process_logout();
-				header("Location:index.php?current=log"); // Header nécessaire pour affichage du menu utilisateur deconecté
-			}
+
+
 		}
 		
 		public function process_login(){
@@ -59,11 +67,12 @@
 				echo '<br>Prenom :'.$_SESSION['prenom'];
 				echo '<br>ID User:'.$_SESSION['idUser'];
 				echo '<br>PAGE A AFFICHER CAR CONNECTE<br>';
+							header("Location:index.php?current=log"); // Header nécessaire pour affichage du menu utilisateur connecté
+
 			}else{
-				echo "<br>Vous n'êtes pas connecté<br>";
+				$this->_errorsLog.="Erreur de connexion, veuillez verifier vos informations ou contactez l'administrateur";
 			}
 	
-			header("Location:index.php?current=log"); // Header nécessaire pour affichage du menu utilisateur connecté
 		
 		}
 		

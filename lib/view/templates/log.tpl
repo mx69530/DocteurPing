@@ -1,3 +1,6 @@
+<div class="errorCenter">
+	{$errorsLog}
+</div>
 <div id='loginPage'> 
 	<form name="loginForm" class="formBDD" method="post" onsubmit="return validateForm()" action="index.php?current=log&process=login">
       <fieldset>

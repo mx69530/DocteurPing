@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-04-07 17:37:35
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-04-09 23:25:39
          compiled from "lib\view\templates\account.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:25551551187bc2ae960-89494356%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:226595526ee53212277-81241288%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,12 +11,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '25551551187bc2ae960-89494356',
+  'nocache_hash' => '226595526ee53212277-81241288',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_551187bc30e414_29129949',
   'variables' => 
   array (
     'nom' => 0,
@@ -26,8 +24,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'pass' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_5526ee532a9974_98367977',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_551187bc30e414_29129949')) {function content_551187bc30e414_29129949($_smarty_tpl) {?><form class="formBDD" method="post" action="index.php?current=account&action=upDate">
+<?php if ($_valid && !is_callable('content_5526ee532a9974_98367977')) {function content_5526ee532a9974_98367977($_smarty_tpl) {?><form class="formBDD" method="post" action="index.php?current=account&action=upDate">
   <fieldset>
 	<legend>Informations personnels</legend>
 	   <label for="nom">Nom :</label>
