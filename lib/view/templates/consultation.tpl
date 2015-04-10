@@ -1,4 +1,4 @@
-<h1>.</h1>
+<h1 class="hide">Pathologie</h1>
 <h2>Rechercher une pathologie</h2>
 <form action="index.php?current=consultation&process=search" method="POST">
 	<!-- ZONE MOTS CLEF -->

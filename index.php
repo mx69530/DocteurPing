@@ -9,7 +9,7 @@
 <html lang="fr">
 	<head>
 	  <!-- Meta data -->
-	  <title>Page Title</title>
+	  <title>DocteurPing</title>
 	  <meta charset="UTF-8">
 	  <meta name="description" content="Truc de chinois">
 	  <meta name="keywords" content="chinois, acuponcture">

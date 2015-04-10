@@ -9,6 +9,7 @@
 			$flux = $modelFlux->getFlux();
 			
 			$fluxtpl = '';
+			$count = 1;
 			foreach($flux as $key=>$value){
 				// CHargement du source XML
 				$xml = new DOMDocument;
@@ -23,6 +24,8 @@
 
 				$fluxtpl .= '<h1>'.$key.'</h1>';
 				$fluxtpl .= $proc->transformToXML($xml);
+				$fluxtpl = str_replace('@Lien@', 'Lien '.$count , $fluxtpl);
+				$count++;
 			}
 		
 			$smarty->assign('flux', $fluxtpl);

@@ -1,3 +1,0 @@
-Utilisation de PDO pour les BDD
-Modele MVC
-Accessible : w3C

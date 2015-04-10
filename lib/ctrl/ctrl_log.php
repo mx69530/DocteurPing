@@ -26,7 +26,7 @@
 			
 			if($_SESSION['pseudo']){
 			
-				$infoUser='Bienvenue'.$_SESSION['prenom'].', voici vos informations personnelles';
+				$infoUser='Bienvenue '.$_SESSION['prenom'].', voici vos informations personnelles';
 				$infoUser.='<br><br>Pseudo :'.$_SESSION['pseudo'];
 				$infoUser.='<br>Nom :'.$_SESSION['nom'];
 				$infoUser.='<br>Prenom :'.$_SESSION['prenom'];

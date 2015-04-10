@@ -4,7 +4,7 @@
 xsi:schemaLocation="rss.xsd" version="2.0">
     <channel>
         <title>Scarlett Johanson</title>
-        <link>http://localhost/DocteurPing/ascii/scarlett</link>
+        <link>http://localhost/gitdocteurping/DocteurPing/ascii/scarlett</link>
         <description>Scarlett Johansson, nee le 22 novembre 1984 a New York, est une actrice et chanteuse americaine.</description>
         <item>
             <title></title>
@@ -13,7 +13,7 @@ xsi:schemaLocation="rss.xsd" version="2.0">
     </channel>
     <channel>
         <title>Kate Upton</title>
-        <link>http://localhost/DocteurPing/ascii/kate</link>
+        <link>http://localhost/gitdocteurping/DocteurPing/ascii/kate</link>
         <description>Katherine Elizabeth "Kate" Upton (nee le 10 juin 1992 a Saint-Joseph dans le Michigan) est un mannequin et une actrice americaine.</description>
         <item>
             <title></title>

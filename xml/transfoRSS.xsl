@@ -4,7 +4,6 @@
 <xsl:output 
   method="html"
   encoding="UTF-8"
-  doctype-public="html"
   indent="yes" />
   
 	<xsl:template match="/">
@@ -26,7 +25,7 @@
 	</xsl:template>
 	
 	<xsl:template match="title"><h2><xsl:value-of select="."/></h2></xsl:template>
-	<xsl:template match="link"><a><xsl:attribute name="href"><xsl:value-of select="."/></xsl:attribute>Lien</a></xsl:template>
+	<xsl:template match="link"><a><xsl:attribute name="href"><xsl:value-of select="."/></xsl:attribute><xsl:value-of select="."/></a></xsl:template>
 	<xsl:template match="description"><p><xsl:value-of select="."/></p></xsl:template>
   
 </xsl:stylesheet>

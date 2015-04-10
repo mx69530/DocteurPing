@@ -1,6 +1,5 @@
 #Options +FollowSymlinks
 RewriteEngine On
-RewriteRule ^fluxrss/([a-z]+)$ xml/$1.xml [L]
 RewriteRule ^ascii/([a-z]+)$ ws/webservice.php?name=$1 [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
